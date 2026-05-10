@@ -44,6 +44,12 @@ jobs:
           haxe-version: ${{ env.HAXE_VERSION }}
 
       - name: Setup Haxe
+        if: inputs.system == 'Windows'
+        uses: krdlab/setup-haxe@v1.2.0
+        with:
+          haxe-version: ${{ env.HAXE_VERSION }}
+
+      - name: Setup Haxe
         if: inputs.system == 'iOS'
         uses: krdlab/setup-haxe@master
         with:

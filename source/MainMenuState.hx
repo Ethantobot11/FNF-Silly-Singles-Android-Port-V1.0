@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		FreePlay = new FlxSprite(800, 200);
+		FreePlay = new FlxSprite(400, 600);
 		FreePlay.frames = Paths.getSparrowAtlas('characters/fnfrap');
 		FreePlay.animation.addByPrefix('idle', 'fnf rap idle', 24, true);
 		FreePlay.animation.play('idle');
@@ -111,7 +111,7 @@ class MainMenuState extends MusicBeatState
 		FreePlay.visible = false;
 		add(FreePlay);
 
-		Credits = new FlxSprite(800, 200);
+		Credits = new FlxSprite(400, 600);
 		Credits.frames = Paths.getSparrowAtlas('characters/notepad');
 		Credits.animation.addByPrefix('idle', 'notepad idle', 24, true);
 		Credits.animation.play('idle');
@@ -119,8 +119,8 @@ class MainMenuState extends MusicBeatState
 		Credits.visible = false;
 		add(Credits);
 
-		Settings = new FlxSprite(800, 200);
-		Settings.frames = Paths.getSparrowAtlas('mcharacters/construct');
+		Settings = new FlxSprite(400, 600);
+		Settings.frames = Paths.getSparrowAtlas('characters/construct');
 		Settings.animation.addByPrefix('idle', 'construct idle', 24, true);
 		Settings.animation.play('idle');
 		Settings.antialiasing = ClientPrefs.globalAntialiasing;
