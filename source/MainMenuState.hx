@@ -44,7 +44,6 @@ class MainMenuState extends MusicBeatState
 	
 
 	var magenta:FlxSprite;
-	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
 
@@ -83,11 +82,6 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-		add(camFollowPos);
-
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
@@ -103,26 +97,30 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		FreePlay = new FlxSprite(400, 600);
+		FreePlay = new FlxSprite(75, -620);
 		FreePlay.frames = Paths.getSparrowAtlas('characters/fnfrap');
 		FreePlay.animation.addByPrefix('idle', 'fnf rap idle', 24, true);
 		FreePlay.animation.play('idle');
+		FreePlay.scale.set(0.6, 0.6);
 		FreePlay.antialiasing = ClientPrefs.globalAntialiasing;
 		FreePlay.visible = false;
 		add(FreePlay);
 
-		Credits = new FlxSprite(400, 600);
+		Credits = new FlxSprite(-145, -1210);
 		Credits.frames = Paths.getSparrowAtlas('characters/notepad');
 		Credits.animation.addByPrefix('idle', 'notepad idle', 24, true);
 		Credits.animation.play('idle');
+		Credits.scale.set(0.3, 0.3);
 		Credits.antialiasing = ClientPrefs.globalAntialiasing;
 		Credits.visible = false;
 		add(Credits);
 
-		Settings = new FlxSprite(400, 600);
+		Settings = new FlxSprite(525, -305);
 		Settings.frames = Paths.getSparrowAtlas('characters/construct');
 		Settings.animation.addByPrefix('idle', 'construct idle', 24, true);
 		Settings.animation.play('idle');
+		Settings.scale.set(0.6, 0.6);
+		Settings.flipX = true;
 		Settings.antialiasing = ClientPrefs.globalAntialiasing;
 		Settings.visible = false;
 		add(Settings);
@@ -134,29 +132,26 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.screenCenter(X);
-			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if (optionShit.length < 6)
-				scr = 0;
-			menuItem.scrollFactor.set(0, scr);
-			menuItem.updateHitbox();
-			// menuItem.screenCenter(X);
-			menuItem.x = 95;
+    	var startY:Float = 150; 
+    	var menuItem:FlxSprite = new FlxSprite(85, startY + (i * 160)); 
+    
+    	menuItem.scale.set(scale, scale);
+    	menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+    	menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+    	menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+    	menuItem.animation.play('idle');
+    	menuItem.ID = i;
+    	menuItems.add(menuItem);
+		/*var scr:Float = (optionShit.length - 4) * 0.135;
+        if (optionShit.length < 6)
+            scr = 0;*/
+    	menuItem.scrollFactor.set(0, 0);
+    	menuItem.updateHitbox();
+    	menuItem.x = 85;
 		}
 
-		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "FNF Silly Psych Engine v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Silly Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -205,7 +200,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
-		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
 		if (!selectedSomethin)
 		{
@@ -287,15 +281,10 @@ class MainMenuState extends MusicBeatState
 		}
 
 		super.update(elapsed);
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.screenCenter(X);
-		});
 	}
 
 	function changeItem(huh:Int = 0)
-{
+	{
     curSelected += huh;
 
     if (curSelected >= menuItems.length)
@@ -315,7 +304,6 @@ class MainMenuState extends MusicBeatState
             if(menuItems.length > 4) {
                 add = menuItems.length * 8;
             }
-            camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
             spr.centerOffsets();
         }
     });
