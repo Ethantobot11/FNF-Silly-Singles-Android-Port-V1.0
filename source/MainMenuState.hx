@@ -38,6 +38,11 @@ class MainMenuState extends MusicBeatState
 		'options'
 	];
 
+	var FreePlay:FlxSprite;
+	var Settings:FlxSprite;
+	var Credits:FlxSprite;
+	
+
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
@@ -98,6 +103,30 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
+		FreePlay = new FlxSprite(800, 200);
+		FreePlay.frames = Paths.getSparrowAtlas('characters/fnfrap');
+		FreePlay.animation.addByPrefix('idle', 'fnf rap idle', 24, true);
+		FreePlay.animation.play('idle');
+		FreePlay.antialiasing = ClientPrefs.globalAntialiasing;
+		FreePlay.visible = false;
+		add(FreePlay);
+
+		Credits = new FlxSprite(800, 200);
+		Credits.frames = Paths.getSparrowAtlas('characters/notepad');
+		Credits.animation.addByPrefix('idle', 'notepad idle', 24, true);
+		Credits.animation.play('idle');
+		Credits.antialiasing = ClientPrefs.globalAntialiasing;
+		Credits.visible = false;
+		add(Credits);
+
+		Settings = new FlxSprite(800, 200);
+		Settings.frames = Paths.getSparrowAtlas('mcharacters/construct');
+		Settings.animation.addByPrefix('idle', 'construct idle', 24, true);
+		Settings.animation.play('idle');
+		Settings.antialiasing = ClientPrefs.globalAntialiasing;
+		Settings.visible = false;
+		add(Settings);
+
 		var scale:Float = 1;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
@@ -117,20 +146,17 @@ class MainMenuState extends MusicBeatState
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;
+			if (optionShit.length < 6)
+				scr = 0;
 			menuItem.scrollFactor.set(0, scr);
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			// menuItem.screenCenter(X);
+			menuItem.x = 95;
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "FNF Silly Psych Engine v" + psychEngineVersion, 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -269,29 +295,43 @@ class MainMenuState extends MusicBeatState
 	}
 
 	function changeItem(huh:Int = 0)
-	{
-		curSelected += huh;
+{
+    curSelected += huh;
 
-		if (curSelected >= menuItems.length)
-			curSelected = 0;
-		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
+    if (curSelected >= menuItems.length)
+        curSelected = 0;
+    if (curSelected < 0)
+        curSelected = menuItems.length - 1;
 
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.animation.play('idle');
-			spr.updateHitbox();
+    menuItems.forEach(function(spr:FlxSprite)
+    {
+        spr.animation.play('idle');
+        spr.updateHitbox();
 
-			if (spr.ID == curSelected)
-			{
-				spr.animation.play('selected');
-				var add:Float = 0;
-				if(menuItems.length > 4) {
-					add = menuItems.length * 8;
-				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
-				spr.centerOffsets();
-			}
-		});
-	}
+        if (spr.ID == curSelected)
+        {
+            spr.animation.play('selected');
+            var add:Float = 0;
+            if(menuItems.length > 4) {
+                add = menuItems.length * 8;
+            }
+            camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+            spr.centerOffsets();
+        }
+    });
+
+    if (FreePlay != null) FreePlay.visible = false;
+    if (Credits != null) Credits.visible = false;
+    if (Settings != null) Settings.visible = false;
+
+    switch (optionShit[curSelected])
+    {
+        case 'freeplay':
+            if (FreePlay != null) FreePlay.visible = true;
+        case 'credits':
+            if (Credits != null) Credits.visible = true;
+        case 'options':
+            if (Settings != null) Settings.visible = true;
+    }
+  }
 }
