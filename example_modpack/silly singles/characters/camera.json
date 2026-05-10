@@ -1,15 +1,15 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				0,
+				9,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 1,
-			"name": "camera idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "camera idle"
 		}
 	],
 	"no_antialiasing": true,
@@ -26,8 +26,8 @@
 		209
 	],
 	"camera_position": [
-		-550,
-		-1170
+		79,
+		-60
 	],
 	"sing_duration": 6.1,
 	"scale": 2

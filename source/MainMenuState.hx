@@ -106,11 +106,11 @@ class MainMenuState extends MusicBeatState
 		FreePlay.visible = false;
 		add(FreePlay);
 
-		Credits = new FlxSprite(-145, -1210);
+		Credits = new FlxSprite(-125, -1110);
 		Credits.frames = Paths.getSparrowAtlas('characters/notepad');
 		Credits.animation.addByPrefix('idle', 'notepad idle', 24, true);
 		Credits.animation.play('idle');
-		Credits.scale.set(0.3, 0.3);
+		Credits.scale.set(0.2, 0.2);
 		Credits.antialiasing = ClientPrefs.globalAntialiasing;
 		Credits.visible = false;
 		add(Credits);

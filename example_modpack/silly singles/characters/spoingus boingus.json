@@ -1,78 +1,78 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				4,
 				0
 			],
-			"loop": false,
-			"fps": 12,
 			"anim": "danceLeft",
+			"fps": 12,
+			"name": "spoingus boingus idle",
 			"indices": [
 				1,
 				2,
 				0
-			],
-			"name": "spoingus boingus idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 12,
 			"anim": "danceRight",
+			"fps": 12,
+			"name": "spoingus boingus idle",
 			"indices": [
 				3,
 				4,
 				0
-			],
-			"name": "spoingus boingus idle"
+			]
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 18,
-			"name": "spoingus boingus left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "spoingus boingus left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				50
 			],
+			"loop": false,
+			"fps": 18,
 			"anim": "singDOWN",
-			"fps": 18,
-			"name": "spoingus boingus down",
-			"indices": []
+			"indices": [],
+			"name": "spoingus boingus down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 18,
 			"anim": "singUP",
-			"fps": 18,
-			"name": "spoingus boingus up",
-			"indices": []
+			"indices": [],
+			"name": "spoingus boingus up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 18,
-			"name": "spoingus boingus right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "spoingus boingus right"
 		}
 	],
 	"no_antialiasing": false,
@@ -89,8 +89,8 @@
 		100
 	],
 	"camera_position": [
-		-733,
-		-550
+		-953,
+		-630
 	],
 	"sing_duration": 6.1,
 	"scale": 1.2
