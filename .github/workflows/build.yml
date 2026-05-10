@@ -38,10 +38,17 @@ jobs:
         uses: actions/checkout@main
 
       - name: Setup Haxe
+        if: inputs.system == 'Android'
         uses: krdlab/setup-haxe@v1.2.0
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
+      - name: Setup Haxe
+        if: inputs.system == 'iOS'
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: ${{ env.HAXE_VERSION }}
+          
       - name: Setup Android NDK
         if: inputs.system == 'Android'
         id: setup-ndk
