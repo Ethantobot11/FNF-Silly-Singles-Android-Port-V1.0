@@ -1,0 +1,78 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "idle",
+            "indices": [],
+            "name": "billionaire idle"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singLEFT",
+            "indices": [],
+            "name": "billionaire left"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singDOWN",
+            "indices": [],
+            "name": "billionaire down"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singUP",
+            "indices": [],
+            "name": "billionaire up"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singRIGHT",
+            "indices": [],
+            "name": "billionaire right"
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/billionaire",
+    "position": [
+        -75.0,
+        25.0
+    ],
+    "healthicon": "billionaire",
+    "flip_x": false,
+    "healthbar_colors": [
+        64,
+        72,
+        202
+    ],
+    "camera_position": [
+        0,
+        0
+    ],
+    "sing_duration": 6.1,
+    "scale": 2.0
+}

@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				3,
+				0
+			],
+			"anim": "idle",
+			"fps": 12,
+			"name": "boris idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 12,
+			"name": "boris left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 12,
+			"name": "boris down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP",
+			"fps": 12,
+			"name": "boris up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				2,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 12,
+			"name": "boris right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "talk",
+			"fps": 12,
+			"name": "boris talk",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "speak",
+			"indices": [],
+			"name": "boris speak"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/boris",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "boris",
+	"flip_x": false,
+	"healthbar_colors": [
+		59,
+		118,
+		69
+	],
+	"camera_position": [
+		-810,
+		-872
+	],
+	"sing_duration": 6.1,
+	"scale": 2
+}

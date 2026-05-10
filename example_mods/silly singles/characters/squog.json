@@ -1,0 +1,165 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "idle",
+			"indices": [],
+			"name": "squog idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "danceLeft",
+			"indices": [
+				1,
+				2,
+				3,
+				0
+			],
+			"name": "squog idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "danceRight",
+			"indices": [
+				4,
+				5,
+				6,
+				0
+			],
+			"name": "squog idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "squog left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "squog down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singUP",
+			"indices": [],
+			"name": "squog up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "squog right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "squog swag-idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "squog swag-left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "squog swag-down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "squog swag-up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "squog swag-right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/squog",
+	"position": [
+		-350,
+		-362.5
+	],
+	"healthicon": "squog",
+	"flip_x": false,
+	"healthbar_colors": [
+		181,
+		203,
+		194
+	],
+	"camera_position": [
+		-780,
+		-660
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2
+}

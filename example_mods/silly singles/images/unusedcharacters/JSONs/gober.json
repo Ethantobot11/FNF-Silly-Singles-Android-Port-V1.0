@@ -1,0 +1,78 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "indices": [],
+            "fps": 12,
+            "anim": "idle",
+            "loop": false,
+            "name": "idle"
+        },
+        {
+            "offsets": [
+                20.0,
+                0.0
+            ],
+            "indices": [],
+            "fps": 12,
+            "anim": "singLEFT",
+            "loop": false,
+            "name": "left"
+        },
+        {
+            "offsets": [
+                0.0,
+                -16.0
+            ],
+            "indices": [],
+            "fps": 12,
+            "anim": "singDOWN",
+            "loop": false,
+            "name": "down"
+        },
+        {
+            "offsets": [
+                -26.0,
+                24.0
+            ],
+            "indices": [],
+            "fps": 12,
+            "anim": "singUP",
+            "loop": false,
+            "name": "up"
+        },
+        {
+            "offsets": [
+                -15.0,
+                0.0
+            ],
+            "indices": [],
+            "fps": 12,
+            "anim": "singRIGHT",
+            "loop": false,
+            "name": "right"
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/gober",
+    "position": [
+        0.0,
+        150.0
+    ],
+    "healthicon": "face",
+    "flip_x": false,
+    "healthbar_colors": [
+        161,
+        161,
+        161
+    ],
+    "camera_position": [
+        100,
+        0
+    ],
+    "sing_duration": 6.1,
+    "scale": 2.0
+}

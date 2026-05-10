@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="gober.png">
+	
+	
+	<SubTexture name="down0000" x="5" y="5" width="200" height="154" />
+	<SubTexture name="down0001" x="210" y="5" width="200" height="154" />
+	<SubTexture name="idle0000" x="416" y="5" width="202" height="170" />
+	<SubTexture name="idle0001" x="624" y="5" width="202" height="170" />
+	<SubTexture name="idle0002" x="5" y="180" width="202" height="170" />
+	<SubTexture name="idle0003" x="212" y="180" width="202" height="170" />
+	<SubTexture name="idle0004" x="212" y="180" width="202" height="170" />
+	<SubTexture name="idle0005" x="212" y="180" width="202" height="170" />
+	<SubTexture name="idle0006" x="212" y="180" width="202" height="170" />
+	<SubTexture name="left0000" x="420" y="180" width="206" height="170" />
+	<SubTexture name="left0001" x="630" y="180" width="206" height="170" />
+	<SubTexture name="right0000" x="5" y="354" width="203" height="170" />
+	<SubTexture name="right0001" x="213" y="354" width="203" height="170" />
+	<SubTexture name="up0000" x="421" y="354" width="150" height="193" />
+	<SubTexture name="up0001" x="576" y="354" width="150" height="193" />
+</TextureAtlas>

@@ -1,0 +1,32 @@
+{
+    "storyName": "you are grounded grounded grounded grounded grounded grounded g",
+    "difficulties": "Normal",
+    "hideFreeplay": false,
+    "weekBackground": "stage",
+    "freeplayColor": [
+        146,
+        113,
+        253
+    ],
+    "weekBefore": "tutorial",
+    "startUnlocked": true,
+    "weekCharacters": [
+        "",
+        "",
+        ""
+    ],
+    "songs": [
+        [
+            "grounded",
+            "boris",
+            [
+                59,
+                118,
+                69
+            ]
+        ]
+    ],
+    "hideStoryMode": true,
+    "weekName": "caillou died :(",
+    "hiddenUntilUnlocked": false
+}

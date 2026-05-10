@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="spoingus boingus.png"><SubTexture name="spoingus boingus idle0000" x="0" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus idle0001" x="1002" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus idle0002" x="2004" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus idle0003" x="3006" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus idle0004" x="0" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus left0000" x="1002" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus left0001" x="2004" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus left0002" x="3006" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus left0003" x="0" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus down0000" x="1002" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus down0001" x="2004" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus down0002" x="3006" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus down0003" x="0" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus up0000" x="1002" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus up0001" x="2004" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus up0002" x="3006" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus up0003" x="0" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus right0000" x="1002" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus right0001" x="2004" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus right0002" x="3006" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="spoingus boingus right0003" x="0" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+</TextureAtlas>

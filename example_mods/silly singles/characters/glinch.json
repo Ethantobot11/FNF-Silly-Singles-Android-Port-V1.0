@@ -1,0 +1,78 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "idle",
+            "indices": [],
+            "name": "glinch v2 idle"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singLEFT",
+            "indices": [],
+            "name": "glinch v2 left"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singDOWN",
+            "indices": [],
+            "name": "glinch v2 down"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singUP",
+            "indices": [],
+            "name": "glinch v2 up"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "singRIGHT",
+            "indices": [],
+            "name": "glinch v2 right"
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/glinch v2",
+    "position": [
+        -250.0,
+        -187.5
+    ],
+    "healthicon": "glinch",
+    "flip_x": false,
+    "healthbar_colors": [
+        100,
+        215,
+        100
+    ],
+    "camera_position": [
+        300,
+        250
+    ],
+    "sing_duration": 6.1,
+    "scale": 1.4
+}

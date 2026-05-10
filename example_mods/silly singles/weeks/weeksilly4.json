@@ -1,0 +1,32 @@
+{
+    "storyName": "the squog",
+    "difficulties": "Normal",
+    "hideFreeplay": false,
+    "weekBackground": "stage",
+    "weekBefore": "tutorial",
+    "freeplayColor": [
+        146,
+        113,
+        253
+    ],
+    "startUnlocked": true,
+    "hideStoryMode": false,
+    "songs": [
+        [
+            "squogsong",
+            "squog",
+            [
+                181,
+                203,
+                194
+            ]
+        ]
+    ],
+    "weekCharacters": [
+        "",
+        "",
+        ""
+    ],
+    "hiddenUntilUnlocked": false,
+    "weekName": "holy bananas! squidward!"
+}

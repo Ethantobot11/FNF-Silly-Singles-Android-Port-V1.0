@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Bub.png"><SubTexture name="Bub idle0000" x="0" y="0" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub idle0001" x="752" y="0" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub idle0002" x="1504" y="0" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub idle0003" x="2256" y="0" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub left0000" x="0" y="752" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub left0001" x="752" y="752" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub left0002" x="1504" y="752" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub left0003" x="2256" y="752" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub down0000" x="0" y="1504" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub down0001" x="752" y="1504" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub down0002" x="1504" y="1504" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub down0003" x="2256" y="1504" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub up0000" x="0" y="2256" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub up0001" x="752" y="2256" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub up0002" x="1504" y="2256" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub up0003" x="2256" y="2256" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub right0000" x="0" y="3008" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub right0001" x="752" y="3008" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub right0002" x="1504" y="3008" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+<SubTexture name="Bub right0003" x="2256" y="3008" width="752" height="752" frameX="0" frameY="0" frameWidth="1504" frameHeight="1504" />
+</TextureAtlas>

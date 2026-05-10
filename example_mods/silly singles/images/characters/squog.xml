@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="squog.png"><SubTexture name="squog idle0000" x="0" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0001" x="1002" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0002" x="2004" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0003" x="3006" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0004" x="4008" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0005" x="0" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog idle0006" x="1002" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog left0000" x="2004" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog left0001" x="3006" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog down0000" x="4008" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog down0001" x="0" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog up0000" x="1002" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog up0001" x="2004" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog right0000" x="3006" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog right0001" x="4008" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-idle0000" x="0" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-idle0001" x="1002" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-idle0002" x="2004" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-idle0003" x="3006" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-left0000" x="4008" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-left0001" x="0" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-left0002" x="1002" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-left0003" x="2004" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-down0000" x="3006" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-down0001" x="4008" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-down0002" x="0" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-down0003" x="1002" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-up0000" x="2004" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-up0001" x="3006" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-up0002" x="4008" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-up0003" x="0" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-right0000" x="1002" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-right0001" x="2004" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-right0002" x="3006" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="squog swag-right0003" x="4008" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+</TextureAtlas>
