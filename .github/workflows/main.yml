@@ -10,9 +10,10 @@ jobs:
         include:
           - name: Windows
             os: windows-2022
-            buildArgs: windows
+            buildArgs: "windows -D officialBuild -final"
             artifactName: windowsBuild
             artifactPath: export/release/windows/bin/*
+            setupCommand: ./setup/windows.bat
             system: Windows
           - name: Android-Arm64
             os: ubuntu-24.04
