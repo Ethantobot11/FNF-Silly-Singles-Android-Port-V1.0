@@ -15,4 +15,3 @@ haxelib git hxcpp https://github.com/PsychExtendedThings/hxcpp --quiet
 haxelib git lime https://github.com/Ethantobot11/lime2 --quiet
 haxelib install openfl 9.1.0 --quiet
 echo Finished!
-pause
