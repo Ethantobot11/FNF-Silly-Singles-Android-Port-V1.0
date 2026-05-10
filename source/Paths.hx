@@ -516,7 +516,6 @@ class Paths
 					return newPath;
 			}
 			#end
-			}
 		}
 
 		for(mod in getGlobalMods()){
