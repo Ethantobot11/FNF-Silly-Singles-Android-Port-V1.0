@@ -65,8 +65,7 @@ class MusicBeatSubstate extends FlxSubState
 			default:
 		}
 
-		trackedinputsNOTES = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];
+		trackedinputsNOTES = controls.trackedInputsNOTES.copy();
 
 		var camcontrol = new flixel.FlxCamera();
 		FlxG.cameras.add(camcontrol, false);

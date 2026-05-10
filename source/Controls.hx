@@ -382,6 +382,8 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonUI(action, MobilePad.buttonA, state));
 			case "B" | "B_X_Y" | "B_E":
 				inline forEachBound(Control.BACK, (action, state) -> addButtonUI(action, MobilePad.buttonB, state));
+			case "P":
+				inline forEachBound(Control.PAUSE, (action, state) -> addButtonUI(action, MobilePad.buttonP, state));
 			case "OptionsC":
 				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, MobilePad.buttonLeft, state));
 				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, MobilePad.buttonRight, state));
@@ -434,6 +436,8 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonNOTES(action, MobilePad.buttonA, state));
 			case "B" | "B_X_Y" | "B_E":
 				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, MobilePad.buttonB, state));
+			case "P":
+				inline forEachBound(Control.PAUSE, (action, state) -> addButtonUI(action, MobilePad.buttonP, state));
 			case "OptionsC":
 				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonNOTES(action, MobilePad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, MobilePad.buttonB, state));
