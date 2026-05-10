@@ -106,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		FreePlay.visible = false;
 		add(FreePlay);
 
-		Credits = new FlxSprite(-125, -1510);
+		Credits = new FlxSprite(-125, -1210);
 		Credits.frames = Paths.getSparrowAtlas('characters/notepad');
 		Credits.animation.addByPrefix('idle', 'notepad idle', 24, true);
 		Credits.animation.play('idle');
@@ -151,7 +151,9 @@ class MainMenuState extends MusicBeatState
 		}
 
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Silly Psych Engine v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(0, 0, 0, "Silly Psych Engine v" + psychEngineVersion, 12);
+		versionShit.y = FlxG.height - versionShit.height;
+		versionShit.scrollFactor.set(0, 0);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
