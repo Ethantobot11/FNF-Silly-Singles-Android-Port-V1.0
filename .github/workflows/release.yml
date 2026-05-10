@@ -47,6 +47,13 @@ jobs:
             artifactName: androidBuild
             artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
             system: Android
+          - name: iOS
+            os: macos-15
+            setupCommand: sh ./setup/unix.sh
+            buildArgs: "ios -final -nosign -D officialBuild"
+            artifactName: iOSBuild
+            artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
+            system: iOS
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
@@ -70,6 +77,15 @@ jobs:
 
       - name: Move Android File
         run: mv /home/runner/${{ env.PROJECT_NAME }}-release.apk /home/runner/${{ env.PROJECT_NAME }}-MobilePad-Update.apk
+
+      - name: Download iOS Build
+        uses: actions/download-artifact@main
+        with:
+          name: iOSBuild
+          path: ${{ github.workspace }}
+
+      - name: Move iOS File
+        run: mv ${{ github.workspace }}/${{ env.PROJECT_NAME }}.ipa /home/runner/${{ env.PROJECT_NAME }}-iOS.ipa
 
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
