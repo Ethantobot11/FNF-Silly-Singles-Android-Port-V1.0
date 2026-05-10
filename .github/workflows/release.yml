@@ -40,6 +40,12 @@ jobs:
     strategy:
       matrix:
         include:
+          - name: Windows
+            os: windows-2022
+            buildArgs: windows
+            artifactName: windowsBuild
+            artifactPath: export/release/windows/bin/*
+            system: Windows
           - name: Android
             os: ubuntu-24.04
             buildArgs: "android -D officialBuild -final" 
@@ -87,6 +93,17 @@ jobs:
       - name: Move iOS File
         run: mv ${{ github.workspace }}/${{ env.PROJECT_NAME }}.ipa /home/runner/${{ env.PROJECT_NAME }}-iOS.ipa
 
+      - name: Download Windows x64 Build
+        uses: actions/download-artifact@main
+        with:
+          name: windowsBuild
+          path: /home/runner/Windows
+
+      - name: Zip Windows Build For Release
+        run: |
+          cd /home/runner/Windows-x64
+          zip -r "/home/runner/${{ env.PROJECT_NAME }}-Windows.zip" .
+
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
         with:
@@ -96,3 +113,4 @@ jobs:
           files: |
             /home/runner/*.apk
             /home/runner/*.ipa
+            /home/runner/*.zip

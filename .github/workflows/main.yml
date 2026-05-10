@@ -8,6 +8,12 @@ jobs:
     strategy:
       matrix:
         include:
+          - name: Windows
+            os: windows-2022
+            buildArgs: windows
+            artifactName: windowsBuild
+            artifactPath: export/release/windows/bin/*
+            system: Windows
           - name: Android-Arm64
             os: ubuntu-24.04
             buildArgs: "android -D officialBuild -ONLY_ARM64 -final" 
