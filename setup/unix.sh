@@ -15,6 +15,6 @@ haxelib install flixel-ui 2.4.0 --quiet
 haxelib install hscript 2.4.0 --quiet
 haxelib git hxCodec https://github.com/PsychExtendedThings/hxCodec-0.6.3 --quiet
 haxelib git hxcpp https://github.com/PsychExtendedThings/hxcpp --quiet
-haxelib git lime https://github.com/ArkoseLabsOfficial/lime --quiet
+haxelib git lime https://github.com/PsychExtendedThings/lime --quiet
 haxelib install openfl 9.1.0 --quiet
 echo Finished!
