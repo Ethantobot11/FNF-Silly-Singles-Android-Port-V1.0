@@ -1,0 +1,97 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				4,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 12,
+			"name": "spoingus boingus idle",
+			"indices": [
+				1,
+				2,
+				0
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 12,
+			"name": "spoingus boingus idle",
+			"indices": [
+				3,
+				4,
+				0
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 18,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "spoingus boingus left"
+		},
+		{
+			"offsets": [
+				0,
+				50
+			],
+			"loop": false,
+			"fps": 18,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "spoingus boingus down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 18,
+			"anim": "singUP",
+			"indices": [],
+			"name": "spoingus boingus up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 18,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "spoingus boingus right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/spoingus boingus",
+	"position": [
+		-375,
+		-350
+	],
+	"healthicon": "spoingus boingus",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		100
+	],
+	"camera_position": [
+		-953,
+		-630
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2
+}
