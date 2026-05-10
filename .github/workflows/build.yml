@@ -60,6 +60,14 @@ jobs:
       - name: Install Libraries
         run: ${{ inputs.setupCommand }}
 
+      - name: Configure Libs
+        run: |
+            haxelib set lime git
+            haxelib set openfl 9.2.2
+            haxelib set flixel 5.2.2
+            haxelib set flixel-addons 2.11.0
+            haxelib set flixel-ui 2.4.0
+
       - name: Install hxvlc for ios
         if: inputs.system == 'iOS'
         run: |
