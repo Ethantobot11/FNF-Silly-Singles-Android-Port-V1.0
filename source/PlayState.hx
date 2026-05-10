@@ -1427,8 +1427,10 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
 		callOnLuas('onCreatePost', []);
-
+		
+		#if TOUCH_ALLOWED
 		addMobilePad("NONE", "P");
+		#end
 
 		super.create();
 
