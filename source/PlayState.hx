@@ -1428,7 +1428,7 @@ class PlayState extends MusicBeatState
 		}
 		callOnLuas('onCreatePost', []);
 		
-		#if TOUCH_ALLOWED
+		#if TOUCH_CONTROLS
 		addMobilePad("NONE", "P");
 		#end
 
