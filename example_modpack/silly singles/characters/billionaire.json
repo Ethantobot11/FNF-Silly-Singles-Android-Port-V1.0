@@ -60,7 +60,7 @@
 	"image": "characters/billionaire",
 	"position": [
 		55,
-		365
+		445
 	],
 	"healthicon": "billionaire",
 	"flip_x": false,
@@ -70,8 +70,8 @@
 		202
 	],
 	"camera_position": [
-		-770,
-		-870
+		-740,
+		-770
 	],
 	"sing_duration": 6.1,
 	"scale": 2
