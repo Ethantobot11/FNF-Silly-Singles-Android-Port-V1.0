@@ -622,7 +622,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		for (i in 0...weekFile.songs.length)
 		{
 			var songText:Alphabet = new Alphabet(90, 320, weekFile.songs[i][0], true);
-			songText.isMenuItem = true;
+			songText.isMenuItemCentered = true; // isMenuItem
 			songText.targetY = i;
 			grpSongs.add(songText);
 			songText.snapToPosition();

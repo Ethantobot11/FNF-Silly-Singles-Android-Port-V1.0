@@ -16,6 +16,7 @@ import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
+import Alphabet;
 import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -101,6 +102,7 @@ class FreeplayState extends MusicBeatState
 		}*/
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.color = FlxColor.WHITE;
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
@@ -110,8 +112,9 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
+			//var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
 			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
-			songText.isMenuItem = true;
+			songText.isMenuItemCentered = true;
 			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
 
@@ -132,7 +135,7 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			//songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -149,9 +152,15 @@ class FreeplayState extends MusicBeatState
 
 		add(scoreText);
 
-		if(curSelected >= songs.length) curSelected = 0;
-		bg.color = songs[curSelected].color;
-		intendedColor = bg.color;
+		if (songs.length > 0)
+		{
+    	if(curSelected >= songs.length) curSelected = 0;
+    	if(curSelected < 0) curSelected = songs.length - 1;
+    	if (songs[curSelected] != null) {
+        bg.color = songs[curSelected].color;
+        intendedColor = bg.color;
+    	}
+		}
 
 		if(lastDifficultyName == '')
 		{

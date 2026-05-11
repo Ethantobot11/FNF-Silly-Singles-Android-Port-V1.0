@@ -1,6 +1,6 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('grounding_floors', 'grounding_floors', -950, -350);
+	makeLuaSprite('grounding_floors', 'grounding_floors', -1150, -950);
 	scaleObject('grounding_floors',2.7,2.7);
 	setScrollFactor('grounding_floors', 1, 1);	
 
