@@ -27,7 +27,7 @@ on:
 
 env:
   HAXE_VERSION: 4.2.5
-  PROJECT_NAME: PsychEngine
+  PROJECT_NAME: SillySingles
 
 jobs:
   build:
