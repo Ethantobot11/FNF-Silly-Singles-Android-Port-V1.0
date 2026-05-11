@@ -5,7 +5,7 @@ permissions: write-all
 on:
   workflow_dispatch:   # Manual trigger
   schedule:
-    - cron: "*/5 * * * *"   # Every 5 minutes
+    - cron: "*/15 * * * *"   # Every 5 minutes
 
 jobs:
   cleanup:
