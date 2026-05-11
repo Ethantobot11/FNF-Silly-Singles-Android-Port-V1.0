@@ -1,78 +1,78 @@
 {
-	"animations": [
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 15,
-			"anim": "idle",
-			"indices": [],
-			"name": "Idle"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				40,
-				-10
-			],
-			"anim": "singLEFT",
-			"fps": 16,
-			"name": "back",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				20,
-				-44
-			],
-			"anim": "singDOWN",
-			"fps": 16,
-			"name": "down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-30,
-				45
-			],
-			"anim": "singUP",
-			"fps": 16,
-			"name": "up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-17,
-				-9
-			],
-			"anim": "singRIGHT",
-			"fps": 16,
-			"name": "forward",
-			"indices": []
-		}
-	],
-	"no_antialiasing": false,
-	"image": "characters/spiteful",
-	"position": [
-		-10,
-		380
-	],
-	"healthicon": "spiteful",
-	"flip_x": false,
-	"healthbar_colors": [
-		40,
-		20,
-		0
-	],
-	"camera_position": [
-		-130,
-		60
-	],
-	"sing_duration": 6.1,
-	"scale": 1.3
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 15,
+            "anim": "idle",
+            "indices": [],
+            "name": "Idle"
+        },
+        {
+            "loop": false,
+            "offsets": [
+                20.0,
+                -5.0
+            ],
+            "anim": "singLEFT",
+            "fps": 16,
+            "name": "back",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                10.0,
+                -22.0
+            ],
+            "anim": "singDOWN",
+            "fps": 16,
+            "name": "down",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -15.0,
+                22.5
+            ],
+            "anim": "singUP",
+            "fps": 16,
+            "name": "up",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -8.5,
+                -4.5
+            ],
+            "anim": "singRIGHT",
+            "fps": 16,
+            "name": "forward",
+            "indices": []
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/spiteful",
+    "position": [
+        -5.0,
+        190.0
+    ],
+    "healthicon": "spiteful",
+    "flip_x": false,
+    "healthbar_colors": [
+        40,
+        20,
+        0
+    ],
+    "camera_position": [
+        -130,
+        60
+    ],
+    "sing_duration": 6.1,
+    "scale": 2.6
 }

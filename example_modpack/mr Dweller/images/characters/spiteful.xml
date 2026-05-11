@@ -1,18 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <TextureAtlas imagePath="spiteful.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Idle0000" x="10" y="10" width="328" height="307"/>
-	<SubTexture name="Idle0001" x="348" y="10" width="328" height="307"/>
-	<SubTexture name="Idle0002" x="686" y="10" width="328" height="307"/>
-	<SubTexture name="Idle0003" x="1024" y="10" width="328" height="307"/>
-	<SubTexture name="Idle0004" x="686" y="10" width="328" height="307"/>
-	<SubTexture name="back0000" x="1362" y="10" width="345" height="300"/>
-	<SubTexture name="back0001" x="10" y="327" width="345" height="300"/>
-	<SubTexture name="down0000" x="365" y="327" width="362" height="273"/>
-	<SubTexture name="down0001" x="737" y="327" width="362" height="273"/>
-	<SubTexture name="forwards0000" x="1109" y="327" width="404" height="300"/>
-	<SubTexture name="forwards0001" x="1523" y="327" width="404" height="300"/>
-	<SubTexture name="up0000" x="10" y="637" width="280" height="342"/>
-	<SubTexture name="up0001" x="300" y="637" width="280" height="342"/>
+	
+	
+	<SubTexture name="Idle0000" x="5" y="5" width="164" height="154" />
+	<SubTexture name="Idle0001" x="174" y="5" width="164" height="154" />
+	<SubTexture name="Idle0002" x="343" y="5" width="164" height="154" />
+	<SubTexture name="Idle0003" x="512" y="5" width="164" height="154" />
+	<SubTexture name="Idle0004" x="343" y="5" width="164" height="154" />
+	<SubTexture name="back0000" x="681" y="5" width="172" height="150" />
+	<SubTexture name="back0001" x="5" y="164" width="172" height="150" />
+	<SubTexture name="down0000" x="182" y="164" width="181" height="136" />
+	<SubTexture name="down0001" x="368" y="164" width="181" height="136" />
+	<SubTexture name="forwards0000" x="554" y="164" width="202" height="150" />
+	<SubTexture name="forwards0001" x="762" y="164" width="202" height="150" />
+	<SubTexture name="up0000" x="5" y="318" width="140" height="171" />
+	<SubTexture name="up0001" x="150" y="318" width="140" height="171" />
 </TextureAtlas>

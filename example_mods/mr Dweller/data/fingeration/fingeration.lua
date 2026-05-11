@@ -9,6 +9,7 @@ function onCreate()
     end
 
     makeLuaSprite('warningimage', warningimage, 0, 0)
+    scaleObject('warningimage',2,2);
     setObjectCamera('warningimage', 'other')
     addLuaSprite('warningimage', true)
 

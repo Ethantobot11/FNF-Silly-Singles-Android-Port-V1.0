@@ -1,32 +1,32 @@
 {
-	"storyName": "Your Rapper Is:",
-	"difficulties": "Uncanny",
-	"hideFreeplay": false,
-	"weekBackground": "thumbnail",
-	"freeplayColor": [
-		146,
-		113,
-		253
-	],
-	"weekBefore": "tutorial",
-	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
-	"songs": [
-		[
-			"fingeration",
-			"thumb",
-			[
-				235,
-				173,
-				155
-			]
-		]
-	],
-	"hideStoryMode": false,
-	"weekName": "Thumb",
-	"hiddenUntilUnlocked": false
+    "storyName": "Your Rapper Is:",
+    "difficulties": "Uncanny",
+    "hideFreeplay": false,
+    "weekBackground": "thumbnail",
+    "freeplayColor": [
+        146,
+        113,
+        253
+    ],
+    "weekBefore": "tutorial",
+    "startUnlocked": true,
+    "weekCharacters": [
+        "",
+        "",
+        ""
+    ],
+    "songs": [
+        [
+            "fingeration",
+            "thumb",
+            [
+                235,
+                173,
+                155
+            ]
+        ]
+    ],
+    "hideStoryMode": false,
+    "weekName": "Thumb",
+    "hiddenUntilUnlocked": false
 }

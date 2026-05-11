@@ -3,7 +3,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
+				19,
 				0
 			],
 			"anim": "idle",
@@ -60,10 +60,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 12,
 			"anim": "idle-alt",
-			"loop": false,
+			"indices": [],
 			"name": "thumb ALT-idle"
 		},
 		{
@@ -71,10 +71,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 12,
 			"anim": "singLEFT-alt",
-			"loop": false,
+			"indices": [],
 			"name": "thumb ALT-left"
 		},
 		{
@@ -82,10 +82,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 12,
 			"anim": "singDOWN-alt",
-			"loop": false,
+			"indices": [],
 			"name": "thumb ALT-down"
 		},
 		{
@@ -93,10 +93,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 12,
 			"anim": "singUP-alt",
-			"loop": false,
+			"indices": [],
 			"name": "thumb ALT-up"
 		},
 		{
@@ -104,18 +104,18 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 12,
 			"anim": "singRIGHT-alt",
-			"loop": false,
+			"indices": [],
 			"name": "thumb ALT-right"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/thumb",
 	"position": [
-		-1600,
-		-550
+		-800,
+		-275
 	],
 	"healthicon": "thumb",
 	"flip_x": false,
@@ -125,9 +125,9 @@
 		192
 	],
 	"camera_position": [
-		-500,
-		-1200
+		-6119,
+		-5240
 	],
 	"sing_duration": 6.1,
-	"scale": 3
+	"scale": 6
 }

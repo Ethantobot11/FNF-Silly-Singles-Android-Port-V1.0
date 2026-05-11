@@ -10,6 +10,6 @@ function onUpdatePost()
 		setProperty('iconP2.flipX', false)
 	end
 	setProperty('iconP2.angle', angleOfs)
-	setProperty('iconP2.x', getProperty('iconP2.x') + posXOfs)
+	setProperty('iconP2.x', getProperty('iconP1x') + posXOfs)
 	setProperty('iconP2.y', defaultY + posYOfs)
 end
