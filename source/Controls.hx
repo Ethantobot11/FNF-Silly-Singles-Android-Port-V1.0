@@ -437,7 +437,7 @@ class Controls extends FlxActionSet
 			case "B" | "B_X_Y" | "B_E":
 				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, MobilePad.buttonB, state));
 			case "P":
-				inline forEachBound(Control.PAUSE, (action, state) -> addButtonUI(action, MobilePad.buttonP, state));
+				inline forEachBound(Control.PAUSE, (action, state) -> addButtonNOTES(action, MobilePad.buttonP, state));
 			case "OptionsC":
 				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonNOTES(action, MobilePad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, MobilePad.buttonB, state));
