@@ -3,9 +3,9 @@ name: Cleanup Failed or Cancelled Workflows
 permissions: write-all
 
 on:
-  workflow_dispatch:   # Manual trigger
+  workflow_dispatch: 
   schedule:
-    - cron: "*/15 * * * *"   # Every 5 minutes
+    - cron: "*/15 * * * *" # Every 15 minutes
 
 jobs:
   cleanup:
