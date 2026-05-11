@@ -1,5 +1,5 @@
 name: Build PsychEngine + Release
-run-name: PsychEngine 0.6.3 MobilePad Update
+run-name: FNF-Silly-Singles-Mobile-Port-V1.0
 on: workflow_dispatch
 
 permissions:
@@ -7,8 +7,8 @@ permissions:
   discussions: write
 
 env:
-  PROJECT_NAME: PsychEngine
-  REPO_PATH: Prohack101010/PsychEngine-0.6.3-Android-Port
+  PROJECT_NAME: SillySingles
+  REPO_PATH: Ethantobot11/FNF-Silly-Singles-Android-Port-V1.0
 
 jobs:
   get-commit-hash:
