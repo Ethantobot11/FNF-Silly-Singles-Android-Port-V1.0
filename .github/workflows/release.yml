@@ -94,15 +94,15 @@ jobs:
       - name: Move iOS File
         run: mv ${{ github.workspace }}/${{ env.PROJECT_NAME }}.ipa /home/runner/${{ env.PROJECT_NAME }}-iOS.ipa
 
-      - name: Download Windows x64 Build
+      - name: Download Windows Build
         uses: actions/download-artifact@main
         with:
           name: windowsBuild
-          path: /home/runner/Windows
+          path: /home/runner/windowsBuild
 
       - name: Zip Windows Build For Release
         run: |
-          cd /home/runner/Windows-x64
+          cd /home/runner/windowsBuild
           zip -r "/home/runner/${{ env.PROJECT_NAME }}-Windows.zip" .
 
       - name: Publish The Release
