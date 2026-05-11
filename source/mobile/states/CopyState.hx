@@ -11,7 +11,12 @@ import sys.FileSystem;
 import sys.io.File;
 import haxe.crypto.Md5;
 import openfl.system.System;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
+/*
+ * Optimized CopyState with Content Validation and RAM Throttling
+ */
 class CopyState extends MusicBeatState
 {
     private static final textFilesExtensions:Array<String> = ['ini', 'txt', 'xml', 'hxs', 'hx', 'lua', 'json', 'frag', 'vert'];
@@ -35,11 +40,6 @@ class CopyState extends MusicBeatState
 
     override function create()
     {    
-        locatedFiles = [];
-        maxLoopTimes = 0;
-        
-        checkExistingFiles();
-        
         if (maxLoopTimes <= 0)
         {
             MusicBeatState.switchState(new TitleState());
@@ -105,8 +105,8 @@ class CopyState extends MusicBeatState
         loopTimes++;
         
         var internalPath = getFile(file);
-        
         var shouldWrite = false;
+
         if (!FileSystem.exists(file)) {
             shouldWrite = true;
         } else {
@@ -136,8 +136,11 @@ class CopyState extends MusicBeatState
         }
     }
 
-    public static function checkExistingFiles()
+    public static function checkExistingFiles():Bool
     {
+        locatedFiles = [];
+        directoriesToIgnore = [];
+        
         var fullList:Array<String> = OpenFLAssets.list();
         var assets = fullList.filter(f -> f.startsWith('assets/') || f.startsWith('mods/') || f.startsWith('modpack/'));
         
@@ -165,6 +168,7 @@ class CopyState extends MusicBeatState
         }
 
         maxLoopTimes = locatedFiles.length;
+        return (maxLoopTimes <= 0);
     }
 
     public function createContentFromInternal(file:String) {
@@ -175,7 +179,8 @@ class CopyState extends MusicBeatState
     }
 
     public function getFileBytes(file:String):ByteArray {
-        return (Path.extension(file).toLowerCase() == 'ttf' || Path.extension(file).toLowerCase() == 'otf') ? 
+        var extension = Path.extension(file).toLowerCase();
+        return (extension == 'ttf' || extension == 'otf') ? 
             ByteArray.fromFile(file) : OpenFLAssets.getBytes(file);
     }
 
