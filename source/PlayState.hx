@@ -1430,6 +1430,7 @@ class PlayState extends MusicBeatState
 		
 		#if TOUCH_CONTROLS
 		addMobilePad("NONE", "P");
+	    addMobilePadCamera();
 		#end
 
 		super.create();
