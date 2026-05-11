@@ -79,7 +79,8 @@ class CreditsState extends MusicBeatState
 			pushModCreditsToList(folder);
 		}
 		#end
-
+		
+		
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 		    ['Psych Engine Mobile Port'],
 			['KralOyuncu 2010X',	 'KralOyuncuV3',	'Android Porter',					                        'https://youtube.com/@kraloyuncurbx',	    '378FC7'],
@@ -92,8 +93,8 @@ class CreditsState extends MusicBeatState
 			['Eros The Awsomer',		         'eros',		    'Android Developer\n(Port by them)',	'',	        'FFE9D1'],
 			[''],
 			['The Main Duo'],
-			['Foogle',				'foogle',			'The one and only composer',					            'https://twitter.com/iamfoogle',			'#8a2be2'],
-			['bub',				'bub',			'(almost) Everything Sprite and Source Code Related',					            'https://www.youtube.com/channel/UC39qwjZDki7CDOHxFYsqxMw',			'000000'],
+			['Foogle',				'foogle',			'The one and only composer',					            'https://twitter.com/iamfoogle',			'378FC7'],
+			['bub',				'bub',			'(almost) Everything Sprite and Source Code Related',					            'https://www.youtube.com/channel/UC39qwjZDki7CDOHxFYsqxMw',			'378FC7'],
 			[''],
 			[''],
 			[''],
