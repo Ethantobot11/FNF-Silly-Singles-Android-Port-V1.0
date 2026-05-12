@@ -146,6 +146,8 @@ class CopyState extends MusicBeatState
         
         for (file in assets)
         {
+            if (file.endsWith('/') || OpenFLAssets.isLocal(file, "DIR")) continue;
+
             if (file.endsWith(IGNORE_FOLDER_FILE_NAME))
                 directoriesToIgnore.push(Path.directory(file));
             
@@ -156,11 +158,25 @@ class CopyState extends MusicBeatState
             if (skip) continue;
 
             if (FileSystem.exists(file)) {
-                var info = FileSystem.stat(file);
-                var internalBytes = OpenFLAssets.getBytes(getFile(file));
-                
-                if (info.size == internalBytes.length) {
-                    continue;
+                try {
+                    var info = FileSystem.stat(file);
+                    @:privateAccess
+                    var internalSize:Int = 0;
+                    var assetPath = getFile(file);
+                    
+                    if (LimeAssets.exists(assetPath)) {
+                        var libraryName = assetPath.contains(":") ? assetPath.split(":")[0] : "default";
+                        var symbolID = assetPath.contains(":") ? assetPath.split(":")[1] : assetPath;
+                        var library = LimeAssets.getLibrary(libraryName);
+                        
+                        if (library != null) {
+                            internalSize = library.exists(symbolID, "BINARY") ? library.size(symbolID) : -1;
+                        }
+                    }
+                    if (internalSize != -1 && info.size == internalSize) {
+                        continue;
+                    }
+                } catch(e:Dynamic) {
                 }
             }
 
