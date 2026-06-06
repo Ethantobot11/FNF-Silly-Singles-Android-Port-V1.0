@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="alvin.png">
+<SubTexture name="alvin idle0000" x="0" y="0" width="245" height="322" frameX="0" frameY="0" frameWidth="490" frameHeight="644" />
+</TextureAtlas>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="caylou.png"><SubTexture name="caylou idle0000" x="0" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou idle0001" x="1002" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou idle0002" x="2004" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou idle0003" x="3006" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou left0000" x="4008" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou left0001" x="5010" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou left0002" x="6012" y="0" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou left0003" x="0" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou down0000" x="1002" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou down0001" x="2004" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou down0002" x="3006" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou down0003" x="4008" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou up0000" x="5010" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou up0001" x="6012" y="1002" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou up0002" x="0" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou up0003" x="1002" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou right0000" x="2004" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou right0001" x="3006" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou right0002" x="4008" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou right0003" x="5010" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-idle0000" x="6012" y="2004" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-idle0001" x="0" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-idle0002" x="1002" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-idle0003" x="2004" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-left0000" x="3006" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-left0001" x="4008" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-left0002" x="5010" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-left0003" x="6012" y="3006" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-down0000" x="0" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-down0001" x="1002" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-down0002" x="2004" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-down0003" x="3006" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-up0000" x="4008" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-up0001" x="5010" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-up0002" x="6012" y="4008" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-up0003" x="0" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-right0000" x="1002" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-right0001" x="2004" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-right0002" x="3006" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou sad-right0003" x="4008" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0000" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0001" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0002" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0003" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0004" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0005" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0006" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0007" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0008" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0009" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0010" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou uh-oh0011" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0000" x="5010" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0001" x="6012" y="5010" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0002" x="0" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0003" x="1002" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0004" x="2004" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0005" x="3006" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0006" x="4008" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0007" x="5010" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0008" x="6012" y="6012" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0009" x="0" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0010" x="1002" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0011" x="2004" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0012" x="3006" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0013" x="5010" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0014" x="4008" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0015" x="6012" y="7014" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0016" x="0" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0017" x="1002" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou explode0018" x="2004" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead loop0000" x="3006" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead loop0001" x="4008" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead loop0002" x="5010" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead loop0003" x="6012" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead retry0000" x="3006" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead retry0001" x="4008" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead retry0002" x="5010" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+<SubTexture name="caylou dead retry0003" x="6012" y="8016" width="1002" height="1002" frameX="0" frameY="0" frameWidth="2004" frameHeight="2004" />
+</TextureAtlas>

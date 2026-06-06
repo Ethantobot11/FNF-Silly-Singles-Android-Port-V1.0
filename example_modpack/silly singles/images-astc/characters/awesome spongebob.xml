@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="awesome spongebob.png">
+<SubTexture name="awesome spongebob right0000" x="0" y="0" width="602" height="602" frameX="0" frameY="0" frameWidth="1204" frameHeight="1204" />
+<SubTexture name="awesome spongebob down0000" x="602" y="0" width="602" height="602" frameX="0" frameY="0" frameWidth="1204" frameHeight="1204" />
+<SubTexture name="awesome spongebob up0000" x="0" y="602" width="602" height="602" frameX="0" frameY="0" frameWidth="1204" frameHeight="1204" />
+<SubTexture name="awesome spongebob left0000" x="602" y="602" width="602" height="602" frameX="0" frameY="0" frameWidth="1204" frameHeight="1204" />
+<SubTexture name="awesome spongebob idle0000" x="0" y="1204" width="602" height="602" frameX="0" frameY="0" frameWidth="1204" frameHeight="1204" />
+</TextureAtlas>

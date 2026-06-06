@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="shit butt lol.png"><SubTexture name="shit butt lol down0000" x="0" y="0" width="377" height="377" frameX="0" frameY="0" frameWidth="754" frameHeight="754" />
+<SubTexture name="shit butt lol idle0000" x="377" y="0" width="377" height="377" frameX="0" frameY="0" frameWidth="754" frameHeight="754" />
+<SubTexture name="shit butt lol left0000" x="0" y="377" width="377" height="377" frameX="0" frameY="0" frameWidth="754" frameHeight="754" />
+<SubTexture name="shit butt lol right0000" x="377" y="377" width="377" height="377" frameX="0" frameY="0" frameWidth="754" frameHeight="754" />
+<SubTexture name="shit butt lol up0000" x="0" y="754" width="377" height="377" frameX="0" frameY="0" frameWidth="754" frameHeight="754" />
+</TextureAtlas>
