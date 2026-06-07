@@ -14,7 +14,7 @@ import openfl.utils.Assets as OpenFlAssets;
 import lime.utils.Assets;
 import flixel.FlxSprite;
 #if sys
-import funk.PscyhFile as File;
+import funk.PsychFile as File;
 import funk.PsychFileSystem as FileSystem;
 #end
 import flixel.graphics.FlxGraphic;
