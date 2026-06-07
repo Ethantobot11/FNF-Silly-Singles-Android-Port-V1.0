@@ -14,8 +14,8 @@ import openfl.utils.Assets as OpenFlAssets;
 import lime.utils.Assets;
 import flixel.FlxSprite;
 #if sys
-import sys.io.File;
-import sys.FileSystem;
+import funk.PscyhFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
@@ -367,8 +367,8 @@ class Paths
 		}
 		#end
 
-		var path = getPath('images/$key.png', IMAGE, library);
-		var normalPath = getPath('$key.png', IMAGE, library);
+		var path = getPath('images/$key.astc', IMAGE, library);
+		var normalPath = getPath('$key.astc', IMAGE, library);
 		//trace(path);
 		if (OpenFlAssets.exists(path, IMAGE)) {
 			if(!currentTrackedAssets.exists(path)) {
@@ -477,7 +477,7 @@ class Paths
 	}
 
 	inline static public function modsImages(key:String) {
-		return modFolders('images/' + key + '.png');
+		return modFolders('images/' + key + '.astc');
 	}
 
 	inline static public function modsXml(key:String) {
