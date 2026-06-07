@@ -1,0 +1,34 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": true,
+            "fps": 24,
+            "anim": "idle",
+            "indices": [],
+            "name": "mar idle"
+        }
+    ],
+    "no_antialiasing": true,
+    "image": "characters/mar",
+    "position": [
+        200.0,
+        200.0
+    ],
+    "healthicon": "retroman",
+    "flip_x": false,
+    "healthbar_colors": [
+        255,
+        60,
+        60
+    ],
+    "camera_position": [
+        -150,
+        -150
+    ],
+    "sing_duration": 6.1,
+    "scale": 6.0
+}

@@ -101,9 +101,9 @@ class Song
 
 		if(rawJson == null) {
 			#if sys
-			rawJson = File.getContent(Paths.json(formattedFolder + '/' + formattedSong)).trim();
+			rawJson = funk.FunkinFileSystem.getContent(Paths.json(formattedFolder + '/' + formattedSong)).trim();
 			#else
-			rawJson = Assets.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
+			rawJson = funk.FunkinFileSystem.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
 			#end
 		}
 

@@ -74,14 +74,14 @@ class StageData {
 
 		#if MODS_ALLOWED
 		var modPath:String = Paths.modFolders('stages/' + stage + '.json');
-		if(FileSystem.exists(modPath)) {
-			rawJson = File.getContent(modPath);
-		} else if(FileSystem.exists(path)) {
-			rawJson = File.getContent(path);
+		if(funk.FunkinFileSystem.exists(modPath)) {
+			rawJson = funk.FunkinFileSystem.getContent(modPath);
+		} else if(funk.FunkinFileSystem.exists(path)) {
+			rawJson = funk.FunkinFileSystem.getContent(path);
 		}
 		#else
-		if(Assets.exists(path)) {
-			rawJson = Assets.getText(path);
+		if(funk.FunkinFileSystem.exists(path)) {
+			rawJson = funk.FunkinFileSystem.getContent(path);
 		}
 		#end
 		else

@@ -167,75 +167,77 @@ class FunkinFileSystem
 	 * @return The Bitmap of the path. If `null`, the path does not exist.
 	 */
 	public static function getBitmapData(path:String):Null<BitmapData>
-	{
-		var bitmap:Null<BitmapData> = null;
+    {
+        var bitmap:Null<BitmapData> = null;
 
-		#if USING_GPU_TEXTURES
-		if (path.endsWith('.png')) {
-			path = path.substring(0, path.length - 4) + '.astc';
-		}
-		#end
+        #if USING_GPU_TEXTURES
+        if (path.endsWith('.png')) {
+            path = path.substring(0, path.length - 4) + '.astc';
+        }
+        #end
 
-		try
-		{
-			#if USING_GPU_TEXTURES
-			if (fromLime(path, false))
-			{
-				var fullPath:String = formatLimePath(path);
-				var rawBytes = Assets.getBytes(fullPath);
-				if (rawBytes != null) {
-					bitmap = BitmapData.fromBytes(rawBytes);
-				}
+        try
+        {
+            #if USING_GPU_TEXTURES
+            if (fromLime(path, false))
+            {
+                var fullPath:String = formatLimePath(path);
+                
+                // CRITICAL FIX: Bypass Lime's image decoder and fetch raw compressed bytes instead
+                var rawBytes = Assets.getBytes(fullPath);
+                if (rawBytes != null) {
+                    bitmap = BitmapData.fromBytes(rawBytes);
+                }
 
-				if (bitmap == null)
-				{
-					throw new Exception("Lime returned `null` when unpacking raw ASTC bytes from internal assets.");
-				}
-			}
-			#if sys
-			else if(FileSystem.exists(path))
-			{
-				var fileBytes = File.getBytes(path);
-				if (fileBytes != null) {
-					bitmap = BitmapData.fromBytes(fileBytes);
-				}
-			}
-			#end
+                if (bitmap == null)
+                {
+                    throw new Exception("Lime returned `null` when unpacking ASTC texture byte arrays.");
+                }
+            }
+            #if sys
+            else if(FileSystem.exists(path))
+            {
+                var rawBytes = sys.io.File.getBytes(path);
+                if (rawBytes != null) {
+                    bitmap = BitmapData.fromBytes(rawBytes);
+                }
+            }
+            #end
 
-			#else
-			var image:Null<Image> = null;
+            #else
+            var image:Null<Image> = null;
 
-			if (fromLime(path, false))
-			{
-				var fullPath:String = formatLimePath(path);
-				image = Assets.getImage(fullPath, false);
+            if (fromLime(path, false))
+            {
+                var fullPath:String = formatLimePath(path);
+                image = Assets.getImage(fullPath, false);
 
-				if (image == null)
-				{
-					throw new Exception("Lime returned `null` when getting the image. This should not happen!");
-				}
-			}
-			#if sys
-			else if(FileSystem.exists(path))
-			{
-				image = Image.fromFile(path);
-			}
-			#end
+                if (image == null)
+                {
+                    throw new Exception("Lime returned `null` when getting the image. This should not happen!");
+                }
+            }
+            #if sys
+            else if(FileSystem.exists(path))
+            {
+                image = Image.fromFile(path);
+            }
+            #end
 
-			if (image != null)
-			{
-				bitmap = BitmapData.fromImage(image);
-			}
-			#end
-		}
-		catch(e:Exception)
-		{
-			trace('Failed to get the bitmap from "${path}". More info:\n${e.details()}');
-			bitmap = null;
-		}
+            if (image != null)
+            {
+                bitmap = BitmapData.fromImage(image);
+            }
+            #end
+        }
+        catch(e:Exception)
+        {
+            trace('Failed to get the bitmap from "${path}". More info:\n${e.details()}');
+            bitmap = null;
+        }
 
-		return bitmap;
-	}
+        return bitmap;
+    }
 
 	public static function readDirectory(path:String, ?recursive:Bool = false):Array<String>
 	{

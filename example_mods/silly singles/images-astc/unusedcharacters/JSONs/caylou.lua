@@ -1,0 +1,3 @@
+--main reason for the change in sprites
+--was to cut down on loading time and because
+--I didn't like how the old sprites looked

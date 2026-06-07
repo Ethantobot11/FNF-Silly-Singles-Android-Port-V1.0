@@ -360,42 +360,34 @@ class Paths
         var path = getPath('images/$key.png', IMAGE, library);
         var normalPath = getPath('$key.png', IMAGE, library);
         #end
-
+        
+        var finalPath:String = null;
         if (funk.FunkinFileSystem.exists(path)) {
-            if(!currentTrackedAssets.exists(path)) {
+            finalPath = path;
+        } else if (funk.FunkinFileSystem.exists(normalPath)) {
+            finalPath = normalPath;
+        }
+
+        if (finalPath != null) {
+            if(!currentTrackedAssets.exists(finalPath)) {
                 var newGraphic:FlxGraphic = null;
                 
-                var newBitmap = funk.FunkinFileSystem.getBitmapData(path);
+                // Route everything securely through your working FunkinFileSystem decoder layer
+                var newBitmap = funk.FunkinFileSystem.getBitmapData(finalPath);
                 if (newBitmap != null) {
-                    newGraphic = FlxGraphic.fromBitmapData(newBitmap, false, path);
+                    newGraphic = FlxGraphic.fromBitmapData(newBitmap, false, finalPath);
                 }
 
                 if (newGraphic != null) {
                     newGraphic.persist = true;
-                    currentTrackedAssets.set(path, newGraphic);
+                    currentTrackedAssets.set(finalPath, newGraphic);
                 }
             }
-            localTrackedAssets.push(path);
-            return currentTrackedAssets.get(path);
+            localTrackedAssets.push(finalPath);
+            return currentTrackedAssets.get(finalPath);
         }
-        else if (funk.FunkinFileSystem.exists(normalPath)) {
-            if(!currentTrackedAssets.exists(normalPath)) {
-                var newGraphic:FlxGraphic = null;
 
-                var newBitmap = funk.FunkinFileSystem.getBitmapData(normalPath);
-                if (newBitmap != null) {
-                    newGraphic = FlxGraphic.fromBitmapData(newBitmap, false, normalPath);
-                }
-
-                if (newGraphic != null) {
-                    newGraphic.persist = true;
-                    currentTrackedAssets.set(normalPath, newGraphic);
-                }
-            }
-            localTrackedAssets.push(normalPath);
-            return currentTrackedAssets.get(normalPath);
-        }
-        trace('oh no its returning null NOOOO');
+        trace('oh no its returning null NOOOO for key: ' + key);
         return null;
     }
 

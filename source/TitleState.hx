@@ -90,6 +90,10 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
+		#if TOUCH_CONTROLS
+		MobileData.init();
+		#end
+
 		#if LUA_ALLOWED
 		Paths.pushGlobalMods();
 		#end

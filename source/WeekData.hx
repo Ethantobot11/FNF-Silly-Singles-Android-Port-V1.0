@@ -210,7 +210,7 @@ class WeekData {
 		var rawJson:String = null;
 		#if MODS_ALLOWED
 		if(FileSystem.exists(path)) {
-			rawJson = File.getContent(path);
+			rawJson = funk.FunkinFileSystem.getContent(path);
 		}
 		#else
 		if(OpenFlAssets.exists(path)) {

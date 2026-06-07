@@ -1,0 +1,66 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "idle",
+            "indices": [],
+            "name": "Spongegar n Patar idle"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "danceLeft",
+            "indices": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "name": "Spongegar n Patar idle"
+        },
+        {
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "loop": false,
+            "fps": 12,
+            "anim": "danceRight",
+            "indices": [
+                4,
+                5,
+                6,
+                3
+            ],
+            "name": "Spongegar n Patar idle"
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/Spongegar n Patar",
+    "position": [
+        -800.0,
+        -300.0
+    ],
+    "healthicon": "face",
+    "flip_x": false,
+    "healthbar_colors": [
+        161,
+        161,
+        161
+    ],
+    "camera_position": [
+        -400,
+        -200
+    ],
+    "sing_duration": 6.1,
+    "scale": 0.8
+}

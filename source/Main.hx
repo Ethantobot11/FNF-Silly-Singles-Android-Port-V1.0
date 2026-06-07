@@ -55,6 +55,11 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+
+		#if TOUCH_CONTROLS
+		MobileData.init();
+		#end
+		
 		#if mobile
 		#if android
 		StorageUtil.requestPermissions();

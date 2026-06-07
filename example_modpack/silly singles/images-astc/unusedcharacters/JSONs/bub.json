@@ -1,0 +1,78 @@
+{
+    "animations": [
+        {
+            "loop": false,
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "anim": "idle",
+            "fps": 12,
+            "name": "Bub idle",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "anim": "singLEFT",
+            "fps": 12,
+            "name": "Bub left",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "anim": "singDOWN",
+            "fps": 12,
+            "name": "Bub down",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "anim": "singUP",
+            "fps": 12,
+            "name": "Bub up",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                0.0,
+                0.0
+            ],
+            "anim": "singRIGHT",
+            "fps": 12,
+            "name": "Bub right",
+            "indices": []
+        }
+    ],
+    "no_antialiasing": false,
+    "image": "characters/Bub",
+    "position": [
+        -175.0,
+        -200.0
+    ],
+    "healthicon": "bub",
+    "flip_x": true,
+    "healthbar_colors": [
+        30,
+        30,
+        30
+    ],
+    "camera_position": [
+        -75,
+        400
+    ],
+    "sing_duration": 6.1,
+    "scale": 1.2
+}

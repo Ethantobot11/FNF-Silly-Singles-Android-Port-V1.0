@@ -1,5 +1,6 @@
 package;
 
+import funk.FunkinFileSystem;
 import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
@@ -898,9 +899,9 @@ class PlayState extends MusicBeatState
 
 		for (folder in foldersToCheck)
 		{
-			if(FileSystem.exists(folder))
+			if(FunkinFileSystem.exists(folder))
 			{
-				for (file in FileSystem.readDirectory(folder))
+				for (file in FunkinFileSystem.readDirectory(folder))
 				{
 					if(file.endsWith('.lua') && !filesPushed.contains(file))
 					{
@@ -917,12 +918,12 @@ class PlayState extends MusicBeatState
 		#if (MODS_ALLOWED && LUA_ALLOWED)
 		var doPush:Bool = false;
 		var luaFile:String = 'stages/' + curStage + '.lua';
-		if(FileSystem.exists(Paths.modFolders(luaFile))) {
+		if(funk.FunkinFileSystem.exists(Paths.modFolders(luaFile))) {
 			luaFile = Paths.modFolders(luaFile);
 			doPush = true;
 		} else {
 			luaFile = Paths.getPreloadPath(luaFile);
-			if(FileSystem.exists(luaFile)) {
+			if(funk.FunkinFileSystem.exists(luaFile)) {
 				doPush = true;
 			}
 		}
@@ -1502,14 +1503,14 @@ class PlayState extends MusicBeatState
 				var found:Bool = false;
 				if(FileSystem.exists(frag))
 				{
-					frag = File.getContent(frag);
+					frag = funk.FunkinFileSystem.getContent(frag);
 					found = true;
 				}
 				else frag = null;
 
 				if (FileSystem.exists(vert))
 				{
-					vert = File.getContent(vert);
+					vert = funk.FunkinFileSystem.getContent(vert);
 					found = true;
 				}
 				else vert = null;
