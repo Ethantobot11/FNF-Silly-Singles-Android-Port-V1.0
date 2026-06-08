@@ -1,6 +1,10 @@
 package editors;
 
-import funk.FunkinFileSystem;
+#if sys
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
+#end
+
 #if DISCORD_ALLOWED
 import Discord.DiscordClient;
 #end
@@ -34,10 +38,6 @@ import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
-
-#if MODS_ALLOWED
-import sys.FileSystem;
-#end
 
 using StringTools;
 
@@ -1062,7 +1062,7 @@ class CharacterEditorState extends MusicBeatState
 			directories.push(Paths.mods(mod + '/characters/'));
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
-			if(funk.FunkinFileSystem.exists(directory)) {
+			if(FileSystem.exists(directory)) {
 				for (file in Paths.readDirectory(directory)) {
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {

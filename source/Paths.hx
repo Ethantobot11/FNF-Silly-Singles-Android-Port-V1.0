@@ -298,7 +298,7 @@ class Paths
 		#end
 		#end
 
-		if(OpenFlAssets.exists(getPath(key, type))) {
+		if(OpenFlAssets.exists(getPath(key, type, library), type)) {
 			return true;
 		}
 		return false;
@@ -307,7 +307,7 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = returnGraphic(key);
+		var imageLoaded:FlxGraphic = returnGraphic(key, library);
 		var xmlExists:Bool = false;
 
 		var xml:String = modsXml(key);
@@ -317,7 +317,7 @@ class Paths
 
 		var getXml = file('images/$key.xml', library);
 		if (xmlExists)
-			getXml = File.getContent(xml)
+			getXml = File.getContent(xml);
 		else if(!Paths.fileExists('images/$key.xml', TEXT, false, library))
 			getXml = file('$key.xml', library);
 
@@ -351,46 +351,66 @@ class Paths
 	}
 
 	// completely rewritten asset loading? fuck!
-	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
+    public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	public static function returnGraphic(key:String, ?library:String) {
-		#if MODS_ALLOWED
-		var modKey:String = modsImages(key);
-		if(FileSystem.exists(modKey)) {
-			if(!currentTrackedAssets.exists(modKey)) {
-				var newBitmap:BitmapData = BitmapData.fromFile(modKey);
-				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(newBitmap, false, modKey);
-				newGraphic.persist = true;
-				currentTrackedAssets.set(modKey, newGraphic);
-			}
-			localTrackedAssets.push(modKey);
-			return currentTrackedAssets.get(modKey);
-		}
-		#end
+        #if MODS_ALLOWED
+        var modKey:String = modsImages(key);
+        if(FileSystem.exists(modKey)) {
+            if(!currentTrackedAssets.exists(modKey)) {
+                var newBitmap:BitmapData = openfl.display.BitmapData.fromFile(modKey);
+                if (newBitmap != null) {
+                    var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(newBitmap, false, modKey);
+                    newGraphic.persist = true;
+                    currentTrackedAssets.set(modKey, newGraphic);
+                }
+            }
+            localTrackedAssets.push(modKey);
+            return currentTrackedAssets.get(modKey);
+        }
+        #end
 
-		var path = getPath('images/$key.astc', IMAGE, library);
-		var normalPath = getPath('$key.astc', IMAGE, library);
-		//trace(path);
-		if (OpenFlAssets.exists(path, IMAGE)) {
-			if(!currentTrackedAssets.exists(path)) {
-				var newGraphic:FlxGraphic = FlxG.bitmap.add(path, false, path);
-				newGraphic.persist = true;
-				currentTrackedAssets.set(path, newGraphic);
-			}
-			localTrackedAssets.push(path);
-			return currentTrackedAssets.get(path);
-		}
-		else if (OpenFlAssets.exists(normalPath, IMAGE)) {
-			if(!currentTrackedAssets.exists(normalPath)) {
-				var newGraphic:FlxGraphic = FlxG.bitmap.add(normalPath, false, normalPath);
-				newGraphic.persist = true;
-				currentTrackedAssets.set(normalPath, newGraphic);
-			}
-			localTrackedAssets.push(normalPath);
-			return currentTrackedAssets.get(normalPath);
-		}
-		trace('oh no its returning null NOOOO');
-		return null;
-	}
+        var cleanKey:String = key;
+        if (cleanKey.startsWith("assets/")) cleanKey = cleanKey.substring(7);
+        if (library != null && cleanKey.startsWith(library + "/")) cleanKey = cleanKey.substring(library.length + 1);
+
+        var astcPath = getPath('images/$cleanKey.astc', BINARY, library);
+        var pngPath  = getPath('images/$cleanKey.png', IMAGE, library);
+        var normalAstcPath = getPath('$cleanKey.astc', BINARY, library);
+        var normalPngPath  = getPath('$cleanKey.png', IMAGE, library);
+
+        var defaultAstcPath = getPreloadPath('images/$cleanKey.astc');
+        var defaultPngPath  = getPreloadPath('images/$cleanKey.png');
+        var defaultNormalAstcPath = getPreloadPath('$cleanKey.astc');
+        var defaultNormalPngPath  = getPreloadPath('$cleanKey.png');
+
+        if (OpenFlAssets.exists(pngPath, IMAGE)) return createFlxGraphic(pngPath, IMAGE);
+        if (OpenFlAssets.exists(normalPngPath, IMAGE)) return createFlxGraphic(normalPngPath, IMAGE);
+
+        if (OpenFlAssets.exists(defaultPngPath, IMAGE)) return createFlxGraphic(defaultPngPath, IMAGE);
+        if (OpenFlAssets.exists(defaultNormalPngPath, IMAGE)) return createFlxGraphic(defaultNormalPngPath, IMAGE);
+
+        if (OpenFlAssets.exists(astcPath, BINARY)) return createFlxGraphic(astcPath, BINARY);
+        if (OpenFlAssets.exists(normalAstcPath, BINARY)) return createFlxGraphic(normalAstcPath, BINARY);
+
+        if (OpenFlAssets.exists(defaultAstcPath, BINARY)) return createFlxGraphic(defaultAstcPath, BINARY);
+        if (OpenFlAssets.exists(defaultNormalAstcPath, BINARY)) return createFlxGraphic(defaultNormalAstcPath, BINARY);
+        
+        trace('Asset totally missing - Clean Key: ' + cleanKey + ' (Orig: ' + key + ', Library: ' + library + ')');
+        return null;
+    }
+
+    private static function createFlxGraphic(path:String, type:openfl.utils.AssetType):FlxGraphic {
+        if(!currentTrackedAssets.exists(path)) {
+            var assetBitmap:BitmapData = OpenFlAssets.getBitmapData(path, false);
+            if (assetBitmap != null) {
+                var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(assetBitmap, false, path);
+                newGraphic.persist = true;
+                currentTrackedAssets.set(path, newGraphic);
+            }
+        }
+        localTrackedAssets.push(path);
+        return currentTrackedAssets.get(path);
+    }
 
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 	public static function returnSound(path:Null<String>, key:String, ?library:String) {
@@ -477,9 +497,12 @@ class Paths
 	}
 
 	inline static public function modsImages(key:String) {
-		return modFolders('images/' + key + '.astc');
+		var astcCheck:String = modFolders('images/' + key + '.astc');
+		if (FileSystem.exists(astcCheck)) {
+			return astcCheck;
+		}
+		return modFolders('images/' + key + '.png');
 	}
-
 	inline static public function modsXml(key:String) {
 		return modFolders('images/' + key + '.xml');
 	}

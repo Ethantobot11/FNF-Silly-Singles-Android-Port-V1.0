@@ -1,8 +1,8 @@
 package;
 
 #if MODS_ALLOWED
-import sys.io.File;
-import sys.FileSystem;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #else
 import openfl.utils.Assets;
 #end
@@ -74,14 +74,14 @@ class StageData {
 
 		#if MODS_ALLOWED
 		var modPath:String = Paths.modFolders('stages/' + stage + '.json');
-		if(funk.FunkinFileSystem.exists(modPath)) {
-			rawJson = funk.FunkinFileSystem.getContent(modPath);
-		} else if(funk.FunkinFileSystem.exists(path)) {
-			rawJson = funk.FunkinFileSystem.getContent(path);
+		if(FileSystem.exists(modPath)) {
+			rawJson = File.getContent(modPath);
+		} else if(FileSystem.exists(path)) {
+			rawJson = File.getContent(path);
 		}
 		#else
-		if(funk.FunkinFileSystem.exists(path)) {
-			rawJson = funk.FunkinFileSystem.getContent(path);
+		if(FileSystem.exists(path)) {
+			rawJson = File.getContent(path);
 		}
 		#end
 		else

@@ -165,9 +165,6 @@ class TitleState extends MusicBeatState
 		#end
 
 		Highscore.load();
-		#if TOUCH_CONTROLS
-		MobileData.init();
-		#end
 
 		// IGNORE THIS!!!
 		titleJSON = Json.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
@@ -346,18 +343,36 @@ class TitleState extends MusicBeatState
 		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if (desktop && MODS_ALLOWED)
+		#if MODS_ALLOWED
+		#if desktop
 		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
+		#elseif mobile
+		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.astc";
+		#end
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
 			path = "mods/images/titleEnter.png";
 		}
+		#if mobile
+		else if (!FileSystem.exists(path)){
+			path = "assets/images/titleEnter.astc";
+		}
+		#end
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
 			path = "assets/images/titleEnter.png";
 		}
+		#if mobile
+		else if (!FileSystem.exists(path)){
+			path = "assets/images/titleEnter.astc";
+		}
+		#end
 		//trace(path, FileSystem.exists(path));
+		#if desktop
 		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
+		#elseif mobile
+		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".astc",".xml")));
+		#end
 		#else
 
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');

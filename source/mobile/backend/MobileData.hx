@@ -79,29 +79,40 @@ class MobileData
 	}
 	
 	static function readDirectory(folder:String, map:Dynamic)
-	{
-		folder = folder.contains(':') ? folder.split(':')[1] : folder;
+    {
+        var originalFolder:String = folder;
+        
+        var cleanFolder:String = folder.contains(':') ? folder.split(':')[1] : folder;
 
-		#if MODS_ALLOWED if (funk.FunkinFileSystem.exists(folder)) #end
-		for (file in Paths.readDirectory(folder))
-		{
-			var fileWithNoLib:String = file.contains(':') ? file.split(':')[1] : file;
-			if (Path.extension(fileWithNoLib) == 'json')
-			{
-				file = Path.join([folder, Path.withoutDirectory(file)]);
-				var str = #if MODS_ALLOWED funk.FunkinFileSystem.getContent(file) #else Assets.getText(file) #end;
-				var json:MobileButtonsData = cast Json.parse(str);
-				var mapKey:String = Path.withoutDirectory(Path.withoutExtension(fileWithNoLib));
-				map.set(mapKey, json);
-			}
-		}
-	}
+        for (file in FileSystem.readDirectory(cleanFolder))
+        {
+            var fileWithNoLib:String = file.contains(':') ? file.split(':')[1] : file;
+            if (Path.extension(fileWithNoLib) == 'json')
+            {
+                var targetFile:String = Path.join([originalFolder, Path.withoutDirectory(fileWithNoLib)]);
+                
+                var str:String = "";
+                try {
+                    str = File.getContent(targetFile);
+                } catch(e:Dynamic) {
+                    trace('Failed to read mobile JSON asset path: ' + targetFile + ' - Error: ' + e);
+                    continue;
+                }
+
+                if (str != null && str.trim().length > 0) {
+                    var json:MobileButtonsData = cast Json.parse(str);
+                    var mapKey:String = Path.withoutDirectory(Path.withoutExtension(fileWithNoLib));
+                    map.set(mapKey, json);
+                }
+            }
+        }
+    }
 
 	static function directoriesWithFile(path:String, fileToFind:String, mods:Bool = true)
 	{
 		var foldersToCheck:Array<String> = [];
 		#if sys
-		if(funk.FunkinFileSystem.exists(path + fileToFind))
+		if(FileSystem.exists(path + fileToFind))
 		#end
 			foldersToCheck.push(path + fileToFind);
 
@@ -112,18 +123,18 @@ class MobileData
 			for(mod in Paths.getGlobalMods())
 			{
 				var folder:String = Paths.mods(mod + '/' + fileToFind);
-				if(funk.FunkinFileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(folder);
+				if(FileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(folder);
 			}
 
 			// Then "PsychEngine/mods/" main folder
 			var folder:String = Paths.mods(fileToFind);
-			if(funk.FunkinFileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(Paths.mods(fileToFind));
+			if(FileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(Paths.mods(fileToFind));
 
 			// And lastly, the loaded mod's folder
 			if(Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
 			{
 				var folder:String = Paths.mods(Paths.currentModDirectory + '/' + fileToFind);
-				if(funk.FunkinFileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(folder);
+				if(FileSystem.exists(folder) && !foldersToCheck.contains(folder)) foldersToCheck.push(folder);
 			}
 		}
 		#end

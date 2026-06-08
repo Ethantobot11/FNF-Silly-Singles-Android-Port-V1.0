@@ -1,6 +1,5 @@
 package editors;
 
-import funk.FunkinFileSystem;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -531,7 +530,7 @@ class ChartingState extends MusicBeatState
 		#if MODS_ALLOWED
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
-			if(funk.FunkinFileSystem.exists(directory)) {
+			if(FileSystem.exists(directory)) {
 				for (file in Paths.readDirectory(directory)) {
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {
@@ -591,7 +590,7 @@ class ChartingState extends MusicBeatState
 		#if MODS_ALLOWED
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
-			if(funk.FunkinFileSystem.exists(directory)) {
+			if(FileSystem.exists(directory)) {
 				for (file in Paths.readDirectory(directory)) {
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {
@@ -979,7 +978,7 @@ class ChartingState extends MusicBeatState
 
 		for (i in 0...directories.length) {
 			var directory:String =  directories[i];
-			if(funk.FunkinFileSystem.exists(directory)) {
+			if(FileSystem.exists(directory)) {
 				for (file in Paths.readDirectory(directory)) {
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.lua')) {
@@ -1041,14 +1040,14 @@ class ChartingState extends MusicBeatState
 
 		for (i in 0...directories.length) {
 			var directory:String =  directories[i];
-			if(funk.FunkinFileSystem.exists(directory)) {
+			if(FileSystem.exists(directory)) {
 				for (file in Paths.readDirectory(directory)) {
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file != 'readme.txt' && file.endsWith('.txt')) {
 						var fileToCheck:String = file.substr(0, file.length - 4);
 						if(!eventPushedMap.exists(fileToCheck)) {
 							eventPushedMap.set(fileToCheck, true);
-							eventStuff.push([fileToCheck, funk.FunkinFileSystem.getContent(path)]);
+							eventStuff.push([fileToCheck, File.getContent(path)]);
 						}
 					}
 				}

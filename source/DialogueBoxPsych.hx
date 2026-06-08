@@ -14,8 +14,8 @@ import haxe.Json;
 import haxe.format.JsonParser;
 import Alphabet;
 #if sys
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 import openfl.utils.Assets;
 
@@ -93,14 +93,14 @@ class DialogueCharacter extends FlxSprite
 
 		#if MODS_ALLOWED
 		var path:String = Paths.modFolders(characterPath);
-		if (!funk.FunkinFileSystem.exists(path)) {
+		if (!FileSystem.exists(path)) {
 			path = Paths.getPreloadPath(characterPath);
 		}
 
-		if(!funk.FunkinFileSystem.exists(path)) {
+		if(!FileSystem.exists(path)) {
 			path = Paths.getPreloadPath('images/dialogue/' + DEFAULT_CHARACTER + '.json');
 		}
-		rawJson = funk.FunkinFileSystem.getContent(path);
+		rawJson = File.getContent(path);
 
 		#else
 		var path:String = Paths.getPreloadPath(characterPath);
@@ -528,9 +528,9 @@ class DialogueBoxPsych extends FlxSpriteGroup
 
 	public static function parseDialogue(path:String):DialogueFile {
 		#if MODS_ALLOWED
-		if(funk.FunkinFileSystem.exists(path))
+		if(FileSystem.exists(path))
 		{
-			return cast Json.parse(funk.FunkinFileSystem.getContent(path));
+			return cast Json.parse(File.getContent(path));
 		}
 		#end
 		return cast Json.parse(Assets.getText(path));

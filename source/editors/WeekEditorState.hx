@@ -27,8 +27,8 @@ import flash.net.FileFilter;
 import lime.system.Clipboard;
 import haxe.Json;
 #if sys
-import sys.io.File;
-import sys.FileSystem;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 import WeekData;
 
@@ -497,7 +497,7 @@ class WeekEditorState extends MusicBeatState
 		if(_file.__path != null) fullPath = _file.__path;
 
 		if(fullPath != null) {
-			var rawJson:String = funk.FunkinFileSystem.getContent(fullPath);
+			var rawJson:String = File.getContent(fullPath);
 			if(rawJson != null) {
 				loadedWeek = cast Json.parse(rawJson);
 				if(loadedWeek.weekCharacters != null && loadedWeek.weekName != null) //Make sure it's really a week

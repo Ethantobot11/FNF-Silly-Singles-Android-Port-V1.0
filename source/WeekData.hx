@@ -1,8 +1,8 @@
 package;
 
 #if MODS_ALLOWED
-import sys.io.File;
-import sys.FileSystem;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
@@ -210,7 +210,7 @@ class WeekData {
 		var rawJson:String = null;
 		#if MODS_ALLOWED
 		if(FileSystem.exists(path)) {
-			rawJson = funk.FunkinFileSystem.getContent(path);
+			rawJson = File.getContent(path);
 		}
 		#else
 		if(OpenFlAssets.exists(path)) {

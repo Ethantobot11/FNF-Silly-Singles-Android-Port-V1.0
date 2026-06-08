@@ -42,8 +42,8 @@ import flixel.addons.display.FlxRuntimeShader;
 #end
 
 #if sys
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 
 import Type.ValueType;
@@ -2988,14 +2988,14 @@ class FunkinLua {
 				var found:Bool = false;
 				if(FileSystem.exists(frag))
 				{
-					frag = funk.FunkinFileSystem.getContent(frag);
+					frag = File.getContent(frag);
 					found = true;
 				}
 				else frag = null;
 
 				if(FileSystem.exists(vert))
 				{
-					vert = funk.FunkinFileSystem.getContent(vert);
+					vert = File.getContent(vert);
 					found = true;
 				}
 				else vert = null;

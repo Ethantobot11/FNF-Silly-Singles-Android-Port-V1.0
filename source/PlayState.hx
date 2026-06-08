@@ -1,6 +1,5 @@
 package;
 
-import funk.FunkinFileSystem;
 import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
@@ -68,8 +67,8 @@ import openfl.filters.ShaderFilter;
 #end
 
 #if sys
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 
 #if VIDEOS_ALLOWED
@@ -899,9 +898,9 @@ class PlayState extends MusicBeatState
 
 		for (folder in foldersToCheck)
 		{
-			if(FunkinFileSystem.exists(folder))
+			if(FileSystem.exists(folder))
 			{
-				for (file in FunkinFileSystem.readDirectory(folder))
+				for (file in FileSystem.readDirectory(folder))
 				{
 					if(file.endsWith('.lua') && !filesPushed.contains(file))
 					{
@@ -918,12 +917,12 @@ class PlayState extends MusicBeatState
 		#if (MODS_ALLOWED && LUA_ALLOWED)
 		var doPush:Bool = false;
 		var luaFile:String = 'stages/' + curStage + '.lua';
-		if(funk.FunkinFileSystem.exists(Paths.modFolders(luaFile))) {
+		if(FileSystem.exists(Paths.modFolders(luaFile))) {
 			luaFile = Paths.modFolders(luaFile);
 			doPush = true;
 		} else {
 			luaFile = Paths.getPreloadPath(luaFile);
-			if(funk.FunkinFileSystem.exists(luaFile)) {
+			if(FileSystem.exists(luaFile)) {
 				doPush = true;
 			}
 		}
@@ -1503,14 +1502,14 @@ class PlayState extends MusicBeatState
 				var found:Bool = false;
 				if(FileSystem.exists(frag))
 				{
-					frag = funk.FunkinFileSystem.getContent(frag);
+					frag = File.getContent(frag);
 					found = true;
 				}
 				else frag = null;
 
 				if (FileSystem.exists(vert))
 				{
-					vert = funk.FunkinFileSystem.getContent(vert);
+					vert = File.getContent(vert);
 					found = true;
 				}
 				else vert = null;
