@@ -19,7 +19,8 @@ import openfl.utils.Assets as OpenFlAssets;
 import Alphabet;
 import WeekData;
 #if MODS_ALLOWED
-import sys.FileSystem;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 
 using StringTools;
