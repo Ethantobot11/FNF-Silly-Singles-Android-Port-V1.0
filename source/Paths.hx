@@ -373,44 +373,60 @@ class Paths
         if (cleanKey.startsWith("assets/")) cleanKey = cleanKey.substring(7);
         if (library != null && cleanKey.startsWith(library + "/")) cleanKey = cleanKey.substring(library.length + 1);
 
-        var pngPath  = getPath('images/$cleanKey.png', IMAGE, library);
-        var normalPngPath  = getPath('$cleanKey.png', IMAGE, library);
-        var defaultPngPath  = getPreloadPath('images/$cleanKey.png');
-        var defaultNormalPngPath  = getPreloadPath('$cleanKey.png');
-
         var astcPath = getPath('images/$cleanKey.astc', BINARY, library);
+        var pngPath  = getPath('images/$cleanKey.png', IMAGE, library);
         var normalAstcPath = getPath('$cleanKey.astc', BINARY, library);
+        var normalPngPath  = getPath('$cleanKey.png', IMAGE, library);
+
         var defaultAstcPath = getPreloadPath('images/$cleanKey.astc');
+        var defaultPngPath  = getPreloadPath('images/$cleanKey.png');
         var defaultNormalAstcPath = getPreloadPath('$cleanKey.astc');
+        var defaultNormalPngPath  = getPreloadPath('$cleanKey.png');
 
         if (OpenFlAssets.exists(pngPath, IMAGE)) return createFlxGraphic(pngPath, IMAGE);
         if (OpenFlAssets.exists(normalPngPath, IMAGE)) return createFlxGraphic(normalPngPath, IMAGE);
+
         if (OpenFlAssets.exists(defaultPngPath, IMAGE)) return createFlxGraphic(defaultPngPath, IMAGE);
         if (OpenFlAssets.exists(defaultNormalPngPath, IMAGE)) return createFlxGraphic(defaultNormalPngPath, IMAGE);
 
-        if (OpenFlAssets.exists(astcPath, BINARY)) return createFlxGraphic(pngPath, IMAGE);
-        if (OpenFlAssets.exists(normalAstcPath, BINARY)) return createFlxGraphic(normalPngPath, IMAGE);
-        if (OpenFlAssets.exists(defaultAstcPath, BINARY)) return createFlxGraphic(defaultPngPath, IMAGE);
-        if (OpenFlAssets.exists(defaultNormalAstcPath, BINARY)) return createFlxGraphic(defaultNormalPngPath, IMAGE);
+        if (OpenFlAssets.exists(astcPath, BINARY)) return createFlxGraphic(astcPath, BINARY);
+        if (OpenFlAssets.exists(normalAstcPath, BINARY)) return createFlxGraphic(normalAstcPath, BINARY);
+
+        if (OpenFlAssets.exists(defaultAstcPath, BINARY)) return createFlxGraphic(defaultAstcPath, BINARY);
+        if (OpenFlAssets.exists(defaultNormalAstcPath, BINARY)) return createFlxGraphic(defaultNormalAstcPath, BINARY);
         
         trace('Asset totally missing - Clean Key: ' + cleanKey + ' (Orig: ' + key + ', Library: ' + library + ')');
         return null;
     }
 
     private static function createFlxGraphic(path:String, type:openfl.utils.AssetType):FlxGraphic {
-        if(!currentTrackedAssets.exists(path)) {
-            var assetBitmap:BitmapData = OpenFlAssets.getBitmapData(path, false);
+    if(!currentTrackedAssets.exists(path)) {
+        var assetBitmap:BitmapData = null;
 
-            if (assetBitmap != null) {
-                var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(assetBitmap, false, path);
-                newGraphic.persist = true;
-                currentTrackedAssets.set(path, newGraphic);
-            } else {
-                trace('BitmapData returned null for path: ' + path);
+        if (type == BINARY && haxe.io.Path.extension(path) == 'astc') {
+            try {
+                var bytes = OpenFlAssets.getBytes(path);
+                if (bytes != null) {
+                    var texture = openfl.Lib.current.stage.context3D.createASTCTexture(bytes);
+                    assetBitmap = BitmapData.fromTexture(texture);
+                }
+            } catch(e:Dynamic) {
+                trace('Failed loading hardware ASTC texture: ' + e);
             }
+        } else {
+            assetBitmap = OpenFlAssets.getBitmapData(path, false);
         }
-        localTrackedAssets.push(path);
-        return currentTrackedAssets.get(path);
+
+        if (assetBitmap != null) {
+            var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(assetBitmap, false, path);
+            newGraphic.persist = true;
+            currentTrackedAssets.set(path, newGraphic);
+        } else {
+            trace('BitmapData returned null for path: ' + path);
+        }
+    }
+    localTrackedAssets.push(path);
+    return currentTrackedAssets.get(path);
     }
 
 	public static var currentTrackedSounds:Map<String, Sound> = [];
