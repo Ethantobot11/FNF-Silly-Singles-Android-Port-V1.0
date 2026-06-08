@@ -343,26 +343,20 @@ class TitleState extends MusicBeatState
 		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if MODS_ALLOWED
-        var ext:String = #if mobile ".astc" #else ".png" #end;
-        var path:String = "";
-
-        var modPath:String = "mods/" + Paths.currentModDirectory + "/images/titleEnter" + ext;
-        var defaultModPath:String = "mods/images/titleEnter" + ext;
-        var assetPath:String = "assets/images/titleEnter" + ext;
-
-        if (FileSystem.exists(modPath)) {
-            path = modPath;
-        } else if (FileSystem.exists(defaultModPath)) {
-            path = defaultModPath;
-        } else {
-            path = assetPath;
-        }
-        titleText.frames = FlxAtlasFrames.fromSparrow(
-            BitmapData.fromFile(path),
-            File.getContent(StringTools.replace(path, ext, ".xml"))
-        );
+		#if (desktop && MODS_ALLOWED)
+		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
+		//trace(path, FileSystem.exists(path));
+		if (!FileSystem.exists(path)){
+			path = "mods/images/titleEnter.png";
+		}
+		//trace(path, FileSystem.exists(path));
+		if (!FileSystem.exists(path)){
+			path = "assets/images/titleEnter.png";
+		}
+		//trace(path, FileSystem.exists(path));
+		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
 		#else
+
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		#end
 		var animFrames:Array<FlxFrame> = [];
