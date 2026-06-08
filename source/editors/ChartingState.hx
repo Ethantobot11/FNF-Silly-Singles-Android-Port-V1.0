@@ -49,8 +49,8 @@ import openfl.utils.ByteArray;
 using StringTools;
 #if sys
 import openfl.media.Sound;
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 
 
