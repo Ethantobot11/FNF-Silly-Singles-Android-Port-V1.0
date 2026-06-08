@@ -57,7 +57,7 @@
     <define name="ModpackFolder" if="mobile" />
     <define name="LUA_ALLOWED" if="desktop || mobile" />
     <define name="ACHIEVEMENTS_ALLOWED" />
-    <define name="VIDEOS_ALLOWED" if="web || windows || android" unless="32bits"/>
+    <define name="VIDEOS_ALLOWED" if="web || windows || android || ios" unless="32bits"/>
     <define name="PSYCH_WATERMARKS"/> <define name="TITLE_SCREEN_EASTER_EGG" if="officialBuild"/> <define name="CRASH_HANDLER" if="desktop || mobile" />
 
     <haxedef name="USING_GPU_TEXTURES" if="mobile" />
@@ -253,6 +253,10 @@
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="discord_rpc" if="desktop"/>
 
+    <!-- Enables a terminal log prompt on debug builds -->
+	<!--<haxelib name="hxcpp-debug-server" if="debug"/>
+	<haxedef name="HXC_LIBVLC_LOGGING" if="VIDEOS_ALLOWED debug" />-->
+
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
 
@@ -298,8 +302,11 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 	
 	<!--Used for Izzy Engine's crash handler-->
-	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
-	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
+    <haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_LINE"  if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_CATCH_SEGV"  if="CRASH_HANDLER"/>
+	<haxedef name="HXCPP_DEBUG_LINK" if="CRASH_HANDLER" />
 
     <!--Disable deprecated warnings-->
 	<haxedef name='no-deprecation-warnings' />

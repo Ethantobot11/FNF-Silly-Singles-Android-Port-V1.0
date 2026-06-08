@@ -400,17 +400,32 @@ class Paths
     }
 
     private static function createFlxGraphic(path:String, type:openfl.utils.AssetType):FlxGraphic {
-        if(!currentTrackedAssets.exists(path)) {
-            var assetBitmap:BitmapData = OpenFlAssets.getBitmapData(path, false);
-            if (assetBitmap != null) {
-                var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(assetBitmap, false, path);
-                newGraphic.persist = true;
-                currentTrackedAssets.set(path, newGraphic);
+    if(!currentTrackedAssets.exists(path)) {
+        var assetBitmap:BitmapData = null;
+        if (type == BINARY) {
+            try {
+                var bytes = OpenFlAssets.getBytes(path);
+                if (bytes != null) {
+                    assetBitmap = BitmapData.fromBytes(bytes);
+                }
+            } catch(e:Dynamic) {
+                trace('Failed to decode ASTC binary bytes: ' + e);
             }
+        } else {
+            assetBitmap = OpenFlAssets.getBitmapData(path, false);
         }
-        localTrackedAssets.push(path);
-        return currentTrackedAssets.get(path);
+
+        if (assetBitmap != null) {
+            var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(assetBitmap, false, path);
+            newGraphic.persist = true;
+            currentTrackedAssets.set(path, newGraphic);
+        } else {
+            trace('BitmapData returned null for path: ' + path);
+        }
     }
+    localTrackedAssets.push(path);
+    return currentTrackedAssets.get(path);
+}
 
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 	public static function returnSound(path:Null<String>, key:String, ?library:String) {

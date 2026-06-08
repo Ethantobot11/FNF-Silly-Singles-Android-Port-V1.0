@@ -344,35 +344,24 @@ class TitleState extends MusicBeatState
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
 		#if MODS_ALLOWED
-		#if desktop
-		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
-		#elseif mobile
-		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.astc";
-		#end
-		//trace(path, FileSystem.exists(path));
-		if (!FileSystem.exists(path)){
-			path = "mods/images/titleEnter.png";
-		}
-		#if mobile
-		else if (!FileSystem.exists(path)){
-			path = "assets/images/titleEnter.astc";
-		}
-		#end
-		//trace(path, FileSystem.exists(path));
-		if (!FileSystem.exists(path)){
-			path = "assets/images/titleEnter.png";
-		}
-		#if mobile
-		else if (!FileSystem.exists(path)){
-			path = "assets/images/titleEnter.astc";
-		}
-		#end
-		//trace(path, FileSystem.exists(path));
-		#if desktop
-		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
-		#elseif mobile
-		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".astc",".xml")));
-		#end
+        var ext:String = #if mobile ".astc" #else ".png" #end;
+        var path:String = "";
+
+        var modPath:String = "mods/" + Paths.currentModDirectory + "/images/titleEnter" + ext;
+        var defaultModPath:String = "mods/images/titleEnter" + ext;
+        var assetPath:String = "assets/images/titleEnter" + ext;
+
+        if (FileSystem.exists(modPath)) {
+            path = modPath;
+        } else if (FileSystem.exists(defaultModPath)) {
+            path = defaultModPath;
+        } else {
+            path = assetPath;
+        }
+        titleText.frames = FlxAtlasFrames.fromSparrow(
+            BitmapData.fromFile(path),
+            File.getContent(StringTools.replace(path, ext, ".xml"))
+        );
 		#else
 
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
