@@ -26,7 +26,8 @@ import openfl.events.IOErrorEvent;
 import flash.net.FileFilter;
 import haxe.Json;
 #if sys
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 
 using StringTools;
