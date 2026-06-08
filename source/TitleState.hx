@@ -363,7 +363,6 @@ class TitleState extends MusicBeatState
             File.getContent(StringTools.replace(path, ext, ".xml"))
         );
 		#else
-
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		#end
 		var animFrames:Array<FlxFrame> = [];
