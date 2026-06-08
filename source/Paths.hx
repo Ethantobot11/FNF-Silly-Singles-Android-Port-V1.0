@@ -494,7 +494,7 @@ class Paths
 
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '') {
-		return if (ClientPrefs.Modpack) #if mobile Sys.getCwd() + #end 'modpack/' + key; else #if mobile Sys.getCwd() + #end 'mods/' + key;
+		return if (ClientPrefs.Modpack) 'modpack/' + key; else 'mods/' + key;
 	}
 
 	inline static public function modsFont(key:String) {
@@ -572,7 +572,7 @@ class Paths
 			#end
 
 		}
-		return if (ClientPrefs.Modpack) #if mobile Sys.getCwd() + #end 'modpack/' + key; else #if mobile Sys.getCwd() + #end 'mods/' + key;
+		return if (ClientPrefs.Modpack) 'modpack/' + key; else 'mods/' + key;
 	}
 
 	#if (android || linux || ios)
