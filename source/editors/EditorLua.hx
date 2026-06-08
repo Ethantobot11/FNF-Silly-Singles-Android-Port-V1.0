@@ -19,8 +19,8 @@ import flixel.FlxCamera;
 import flixel.util.FlxColor;
 import flixel.FlxBasic;
 #if sys
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFile as File;
+import funk.PsychFileSystem as FileSystem;
 #end
 import Type.ValueType;
 import Controls;
