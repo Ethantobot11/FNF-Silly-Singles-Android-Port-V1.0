@@ -351,7 +351,7 @@ class WeekEditorState extends MusicBeatState
 			}
 			#elseif mobile
 			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menubackgrounds/menu_' + assetName + '.astc', BANARY), BANARY)) {
+			Assets.exists(Paths.getPath('images/menubackgrounds/menu_' + assetName + '.astc', BINARY), BINARY)) {
 				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
 				isMissing = false;
 			}
@@ -378,7 +378,7 @@ class WeekEditorState extends MusicBeatState
 			}
 			#elseif mobile
 			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('storymenu/' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/storymenu/' + assetName + '.astc', BANARY), BANRY)) {
+			Assets.exists(Paths.getPath('images/storymenu/' + assetName + '.astc', BINARY), BINARY)) {
 				weekThing.loadGraphic(Paths.image('storymenu/' + assetName));
 				isMissing = false;
 			}
