@@ -1,6 +1,7 @@
 package;
 
 import flixel.addons.display.FlxPieDial;
+import Controls;
 
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;

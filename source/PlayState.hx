@@ -1715,7 +1715,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video:VideoSprite = new VideoSprite();
+		var video:VideoSprite = new VideoSprite(filepath, false, true, false);
 		add(video);
 		video.load(filepath);
 		video.play();
