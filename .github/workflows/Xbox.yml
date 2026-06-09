@@ -27,7 +27,7 @@ jobs:
 
     - name: Generate Visual Studio Solution via Lime
       run: |
-        lime build windows -release -Dwindows_uwp
+        haxelib run lime build windows -release -Dwindows_uwp
 
     - name: Convert Project Settings to UWP/Xbox Compliance
       shell: powershell
