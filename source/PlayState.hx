@@ -1693,14 +1693,6 @@ class PlayState extends MusicBeatState
 		return;
 		#end
 	}
-
-	function startAndEnd()
-	{
-		if(endingSong)
-			endSong();
-		else
-			startCountdown();
-	}
 	#else
 	public function startVideo(name:String)
 	{
@@ -1744,6 +1736,7 @@ class PlayState extends MusicBeatState
 		return;
 		#end
 	}
+	#end
 
 	function startAndEnd()
 	{
@@ -1751,8 +1744,7 @@ class PlayState extends MusicBeatState
 			endSong();
 		else
 			startCountdown();
-	}
-	#end
+	}	
 
 	var dialogueCount:Int = 0;
 	public var psychDialogue:DialogueBoxPsych;
