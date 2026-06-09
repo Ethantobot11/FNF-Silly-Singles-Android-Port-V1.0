@@ -248,7 +248,7 @@
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="tjson"/>
 	<haxelib name="hxCodec" if="VIDEOS_ALLOWED" unless="ios"/>
-	<haxelib name="hxvlc" if="ios"/>
+	<haxelib name="hxvlc" if="VIDEOS_ALLOWED ios" unless="android windows linux macos switch html5"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="discord_rpc" if="desktop"/>

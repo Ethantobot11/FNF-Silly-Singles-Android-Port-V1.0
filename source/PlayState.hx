@@ -1711,11 +1711,11 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video:VideoSprite = new VideoSprite(name, false, true, false);
+		var video:VideoSprite = new VideoSprite();
 		add(video);
 		video.load(filepath);
 		video.play();
-		video.cameras = [luaTpadCam];
+		video.cameras = [camVideo];
 		video.alpha = 1;
 		video.visible = true;
 		video.bitmap.onFormatSetup.add(function()
