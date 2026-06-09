@@ -1,15 +1,36 @@
 package;
 
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxCamera;
+import flixel.util.FlxDestroyUtil;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.display.FlxPieDial;
 import Controls;
 
-#if VIDEOS_ALLOWED
+#if hxvlc
 import hxvlc.flixel.FlxVideoSprite;
 #end
 
 class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
-	public var finishCallback:Void->Void = null;
+	public var bitmap(get, never):Dynamic;
+	private function get_bitmap() return videoSprite.bitmap;
+	public function load(name:String, ?options:Dynamic) {
+        #if hxvlc
+        var path:String = 'assets/videos/' + name + '.mp4';
+        videoSprite.load(path, options);
+        #end
+    }
+	public var finishCallback:Dynamic = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
@@ -23,14 +44,15 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false) {
-		super();
+	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false) {
+        super();
+        this.videoName = videoName;
+        scrollFactor.set();
+        
+        if (FlxG.cameras.list.length > 0)
+            cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		this.videoName = videoName;
-		scrollFactor.set();
-		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
-
-		waiting = isWaiting;
+        waiting = isWaiting;
 		if(!waiting)
 		{
 			cover = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
@@ -40,32 +62,32 @@ class VideoSprite extends FlxSpriteGroup {
 			add(cover);
 		}
 
-		// initialize sprites
 		videoSprite = new FlxVideoSprite();
-		videoSprite.antialiasing = ClientPrefs.globalAntialiasing;
-		add(videoSprite);
-		if(canSkip) this.canSkip = true;
+        #if (psychEngineVersion >= "0.7.0")
+        videoSprite.antialiasing = ClientPrefs.globalAntialiasing;
+        #else
+        videoSprite.antialiasing = true; 
+        #end
+        
+        add(videoSprite);
+        if(canSkip) this.canSkip = true;
 
-		// callbacks
-		if(!shouldLoop) videoSprite.bitmap.onEndReached.add(finishVideo);
+        #if hxvlc
+        videoSprite.bitmap.onEndReached.add(finishVideo);
 
-		videoSprite.bitmap.onFormatSetup.add(function()
-		{
-			/*
-			#if hxvlc
-			var wd:Int = videoSprite.bitmap.formatWidth;
-			var hg:Int = videoSprite.bitmap.formatHeight;
-			trace('Video Resolution: ${wd}x${hg}');
-			videoSprite.scale.set(FlxG.width / wd, FlxG.height / hg);
-			#end
-			*/
-			videoSprite.setGraphicSize(FlxG.width);
-			videoSprite.updateHitbox();
-			videoSprite.screenCenter();
-		});
+        videoSprite.bitmap.onFormatSetup.add(function()
+        {
+            videoSprite.setGraphicSize(FlxG.width);
+            videoSprite.updateHitbox();
+            videoSprite.screenCenter();
+        });
 
-		// start video and adjust resolution to screen size
-		videoSprite.load(videoName, shouldLoop ? ['input-repeat=65545'] : null);
+        var path:String = 'assets/videos/' + videoName + '.mp4';
+        videoSprite.load(path, shouldLoop ? ['input-repeat=65545'] : null);
+        #end
+        
+        if(!waiting)
+            videoSprite.play();
 	}
 
 	var alreadyDestroyed:Bool = false;
@@ -74,7 +96,6 @@ class VideoSprite extends FlxSpriteGroup {
 		if(alreadyDestroyed)
 			return;
 
-		trace('Video destroyed');
 		if(cover != null)
 		{
 			remove(cover);
@@ -88,13 +109,11 @@ class VideoSprite extends FlxSpriteGroup {
 		{
 			if(FlxG.state.members.contains(this))
 				FlxG.state.remove(this);
-
-			if(FlxG.state.subState != null && FlxG.state.subState.members.contains(this))
-				FlxG.state.subState.remove(this);
 		}
 		super.destroy();
 		alreadyDestroyed = true;
 	}
+
 	function finishVideo()
 	{
 		if (!alreadyDestroyed)
@@ -110,7 +129,18 @@ class VideoSprite extends FlxSpriteGroup {
 	{
 		if(canSkip)
 		{
-			if(controls.ACCEPT)
+			var pressedSkip:Bool = false;
+			#if mobile
+			pressedSkip = FlxG.touches.list.length > 0 || FlxG.keys.justPressed.ENTER;
+			#else
+			try {
+				pressedSkip = Controls.instance.ACCEPT;
+			} catch(e:Dynamic) {
+				pressedSkip = FlxG.keys.justPressed.ENTER;
+			}
+			#end
+
+			if(pressedSkip)
 			{
 				holdingTime = Math.max(0, Math.min(_timeToSkip, holdingTime + elapsed));
 			}
@@ -124,8 +154,11 @@ class VideoSprite extends FlxSpriteGroup {
 			{
 				if(onSkip != null) onSkip();
 				finishCallback = null;
+				#if hxvlc
 				videoSprite.bitmap.onEndReached.dispatch();
-				trace('Skipped video');
+				#else
+				finishVideo();
+				#end
 				return;
 			}
 		}
@@ -159,13 +192,12 @@ class VideoSprite extends FlxSpriteGroup {
 	function updateSkipAlpha()
 	{
 		if(skipSprite == null) return;
-
 		skipSprite.amount = Math.min(1, Math.max(0, (holdingTime / _timeToSkip) * 1.025));
 		skipSprite.alpha = FlxMath.remapToRange(skipSprite.amount, 0.025, 1, 0, 1);
 	}
 
-	public function play() videoSprite?.play();
-	public function resume() videoSprite?.resume();
-	public function pause() videoSprite?.pause();
+	public function play() { if(videoSprite != null) videoSprite.play(); }
+	public function resume() { if(videoSprite != null) videoSprite.resume(); }
+	public function pause() { if(videoSprite != null) videoSprite.pause(); }
 	#end
 }
