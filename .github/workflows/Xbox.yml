@@ -31,14 +31,12 @@ jobs:
 
     - name: Generate Visual Studio Solution via Lime
       run: |
-        haxelib run lime update windows -release -Dwindows_uwp
+        haxelib run lime update windows -release
 
     - name: Convert Project Settings to UWP/Xbox Compliance
       shell: powershell
       run: |
         Start-Sleep -Seconds 2
-        
-        if (-not (Test-Path "export")) { New-Item -ItemType Directory -Path "export" }
         
         $projFile = Get-ChildItem -Path "export" -Filter "*.vcxproj" -Recurse | Select-Object -First 1
         
@@ -49,9 +47,9 @@ jobs:
             $content = $content -replace '<ConfigurationType>Application</ConfigurationType>', '<ConfigurationType>Application</ConfigurationType><AppContainerApplication>true</AppContainerApplication><ApplicationType>Windows Store</ApplicationType><ApplicationTypeRevision>10.0</ApplicationTypeRevision>'
             Set-Content $projFile.FullName $content
         } else {
-            Write-Host "List of files found in export directory for debugging:"
+            Write-Host "Directory tree contents for debugging:"
             Get-ChildItem -Path "export" -Recurse | Select-Object FullName
-            Write-Error "Could not locate or automatically create the Visual Studio project file!"
+            Write-Error "Could not locate the generated Visual Studio project file!"
             exit 1
         }
 
