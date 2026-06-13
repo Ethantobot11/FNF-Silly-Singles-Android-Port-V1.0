@@ -16,7 +16,7 @@ jobs:
     - name: Set up Haxe Environment
       uses: krdlab/setup-haxe@v1
       with:
-        haxe-version: 4.3.4 
+        haxe-version: 4.3.4
 
     - name: Set up MSBuild (Visual Studio Compiler)
       uses: microsoft/setup-msbuild@v2
@@ -25,35 +25,41 @@ jobs:
       run: |
         setup/windows.bat
 
-    - name: Generate Visual Studio Solution via Lime
+    - name: Automatically Ensure Visual Studio Solution Exists
       run: |
-        haxelib run lime build windows -release -Dwindows_uwp
+        haxelib run lime update windows -release -Dwindows_uwp
 
     - name: Convert Project Settings to UWP/Xbox Compliance
       shell: powershell
       run: |
-        $projFile = Get-ChildItem -Path "export/windows/obj/*.vcxproj" -Recurse | Select-Object -First 1
+        $projFile = Get-ChildItem -Path "export" -Filter "*.vcxproj" -Recurse | Select-Object -First 1
+        
         if ($projFile) {
-            echo "Found project file at: $projFile"
-
+            Write-Host "Found project file at: $($projFile.FullName)"
             $content = Get-Content $projFile.FullName
             
             $content = $content -replace '<ConfigurationType>Application</ConfigurationType>', '<ConfigurationType>Application</ConfigurationType><AppContainerApplication>true</AppContainerApplication><ApplicationType>Windows Store</ApplicationType><ApplicationTypeRevision>10.0</ApplicationTypeRevision>'
-
             Set-Content $projFile.FullName $content
         } else {
-            Write-Error "Could not locate the generated Visual Studio project file!"
+            Write-Error "Could not locate or automatically create the Visual Studio project file!"
             exit 1
         }
 
     - name: Compile and Package MSIX Bundle
+      shell: powershell
       run: |
-        msbuild export/windows/obj/*.sln /p:Configuration=Release /p:Platform=x64 /p:AppxBundle=Always /p:AppxBundlePlatforms="x64" /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false
+        $slnFile = Get-ChildItem -Path "export" -Filter "*.sln" -Recurse | Select-Object -First 1
+        if (-not $slnFile) {
+            Write-Error "Could not find the .sln file!"
+            exit 1
+        }
+        
+        msbuild $($slnFile.FullName) /p:Configuration=Release /p:Platform=x64 /p:AppxBundle=Always /p:AppxBundlePlatforms="x64" /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false
 
     - name: Upload Finished Xbox Bundle
       uses: actions/upload-artifact@v4
       with:
         name: Pure-Xbox-PsychEngine-Bundle
         path: |
-          export/windows/obj/**/AppPackages/**/*.msixbundle
-          export/windows/obj/**/AppPackages/**/*.appxbundle
+          export/**/AppPackages/**/*.msixbundle
+          export/**/AppPackages/**/*.appxbundle
