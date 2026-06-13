@@ -25,13 +25,21 @@ jobs:
       run: |
         setup/windows.bat
 
-    - name: Automatically Ensure Visual Studio Solution Exists
+    - name: Configure Lime for Windows Target
+      run: |
+        echo "y" | haxelib run lime setup windows
+
+    - name: Generate Visual Studio Solution via Lime
       run: |
         haxelib run lime update windows -release -Dwindows_uwp
 
     - name: Convert Project Settings to UWP/Xbox Compliance
       shell: powershell
       run: |
+        Start-Sleep -Seconds 2
+        
+        if (-not (Test-Path "export")) { New-Item -ItemType Directory -Path "export" }
+        
         $projFile = Get-ChildItem -Path "export" -Filter "*.vcxproj" -Recurse | Select-Object -First 1
         
         if ($projFile) {
@@ -41,6 +49,8 @@ jobs:
             $content = $content -replace '<ConfigurationType>Application</ConfigurationType>', '<ConfigurationType>Application</ConfigurationType><AppContainerApplication>true</AppContainerApplication><ApplicationType>Windows Store</ApplicationType><ApplicationTypeRevision>10.0</ApplicationTypeRevision>'
             Set-Content $projFile.FullName $content
         } else {
+            Write-Host "List of files found in export directory for debugging:"
+            Get-ChildItem -Path "export" -Recurse | Select-Object FullName
             Write-Error "Could not locate or automatically create the Visual Studio project file!"
             exit 1
         }
